@@ -18,10 +18,15 @@ func _physics_process(_delta):
 		if Input.is_action_pressed("ui_right"):
 			apply_impulse(Vector2.ZERO,Vector2.RIGHT * moveForce)
 		if Input.is_action_pressed("ui_down"):
-			apply_impulse(Vector2.ZERO,Vector2.DOWN * moveForce)
+#			apply_impulse(Vector2.ZERO,Vector2.DOWN * moveForce)
+			apply_torque_impulse(-150)
+		if position.y >= 1080:
+			landed()
+			emit_signal("landed", self)
 
 func landed():
 	active = false
+
 
 func _on_Area2D_body_entered(body):
 	if body != self && active:

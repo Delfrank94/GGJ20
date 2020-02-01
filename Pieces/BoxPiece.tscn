@@ -4,6 +4,7 @@
 [ext_resource path="res://arte/assets/piece_o.png" type="Texture" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
+absorbent = true
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 63.1606, 63.5476 )
