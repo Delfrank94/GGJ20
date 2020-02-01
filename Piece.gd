@@ -24,7 +24,9 @@ func landed():
 	active = false
 
 func _on_Area2D_body_entered(body):
-	if body != self && active:
+	if body != self:
 		SFX.play_fx(SFX.FX.LAND)
+
+	if body != self && active:
 		landed()
 		emit_signal("landed", self)
