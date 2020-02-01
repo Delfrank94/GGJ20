@@ -56,6 +56,7 @@ func checkGround():
 		if onGround == false:
 			onGround = true
 			jumpCount = 0
+			sprite.play("land")
 	else:
 		if onGround == true:
 			onGround = false
@@ -80,7 +81,7 @@ func animate():
 	sprite.flip_h = facing != 1
 	if is_on_floor():
 		if sprite.animation != "hurt":
-			if abs(velocity.x) <= 30 || is_on_wall():
+			if abs(velocity.x) <= 0 || is_on_wall():
 				if sprite.animation != "idle":
 					sprite.play("idle")
 			else:
