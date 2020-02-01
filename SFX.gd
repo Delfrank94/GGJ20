@@ -22,10 +22,7 @@ func _ready():
 
 func play_fx(key):
 	if streams.has(key):
-		print("has key")
 		var stream : AudioStreamSample = streams[key]
 		_audio_players[_audio_player_idx].set_stream(stream)
 		_audio_players[_audio_player_idx].play()
 		_audio_player_idx = (_audio_player_idx + 1) % MAX_AUDIO_PLAYERS
-	else:
-		print("doesn't have it")
