@@ -3,6 +3,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Level.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 184.608, 63.6351 )
@@ -58,4 +59,13 @@ autostart = true
 position = Vector2( 185.633, 922.489 )
 
 [node name="Pieces" type="Node2D" parent="."]
+
+[node name="Coin1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 564.25, 796.745 )
+
+[node name="Coin2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 797.365, 814.012 )
+
+[node name="Coin3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1110.34, 798.903 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

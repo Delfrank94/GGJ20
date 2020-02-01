@@ -46,4 +46,5 @@ func _on_Timer_timeout():
 		else:
 			piece.set_deferred("mode",RigidBody2D.MODE_STATIC)
 	$Player.active = true
+	get_tree().call_group("coins", "set_active")
 	
