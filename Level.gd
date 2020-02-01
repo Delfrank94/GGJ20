@@ -27,7 +27,7 @@ func _process(_delta):
 			creationMargins.x,get_viewport_rect().size.x/2 - creationMargins.y),
 			 -100)
 		pieceScenes.shuffle()
-		var nextPiece = pieceScenes[0]
+		var nextPiece = pieceScenes[wrapi(randi(),0,pieceScenes.size())]
 		currentPiece = nextPiece.instance()
 		currentPiece.position = newPiecePosition
 		pieces.add_child(currentPiece)
@@ -47,4 +47,3 @@ func _on_Timer_timeout():
 			yield(piece,"landed")
 	$Player.active = true
 	get_tree().call_group("coins", "set_active")
-	

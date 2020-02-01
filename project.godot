@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player.gd"
+}, {
+"base": "Control",
+"class": "RoundBar",
+"language": "GDScript",
+"path": "res://RoundBar.gd"
 } ]
 _global_script_class_icons={
 "Piece": "",
-"Player": ""
+"Player": "",
+"RoundBar": ""
 }
 
 [application]
