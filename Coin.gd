@@ -11,5 +11,6 @@ func set_active():
 
 func _on_Coin_body_entered(player : Player):
 	if active:
-#		player.pocket(self.points)
+		player.pocket(self.points)
+		SFX.play_fx(SFX.FX.COIN)
 		self.queue_free()
