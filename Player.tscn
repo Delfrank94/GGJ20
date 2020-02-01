@@ -1,21 +1,60 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://arte/assets/player/run_4.png" type="Texture" id=2]
+[ext_resource path="res://arte/assets/player/run_2.png" type="Texture" id=3]
+[ext_resource path="res://arte/assets/player/run_3.png" type="Texture" id=4]
+[ext_resource path="res://arte/assets/player/run_1.png" type="Texture" id=5]
+[ext_resource path="res://arte/assets/player/run_5.png" type="Texture" id=6]
+[ext_resource path="res://arte/assets/player/run_6.png" type="Texture" id=7]
+[ext_resource path="res://arte/assets/player/idle_2.png" type="Texture" id=8]
+[ext_resource path="res://arte/assets/player/idle_1.png" type="Texture" id=9]
+[ext_resource path="res://arte/assets/player/fall2.png" type="Texture" id=10]
+[ext_resource path="res://arte/assets/player/jump_2.png" type="Texture" id=11]
+[ext_resource path="res://arte/assets/player/fall1.png" type="Texture" id=12]
+[ext_resource path="res://arte/assets/player/jump_1.png" type="Texture" id=13]
 
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 26.9646
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.5
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "land",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": false,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "jump",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 35.08, 74.688 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 191.019, 750.098 )
 script = ExtResource( 1 )
 
-[node name="player" type="Sprite" parent="."]
-position = Vector2( 1.86325, -8.61658 )
-texture = ExtResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="player" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 3 )
+scale = Vector2( 0.473964, 0.473964 )
+frames = SubResource( 2 )
+animation = "idle"
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.98607, -8.34149 )
+position = Vector2( 6, 22 )
 shape = SubResource( 3 )

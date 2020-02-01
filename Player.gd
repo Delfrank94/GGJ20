@@ -6,9 +6,7 @@ export var _dashSpeed = 350
 export var gravity = 20
 export var maxSpeed = 200
 export var speed = Vector2(50,550)
-
-onready var animator = $AnimationPlayer
-onready var sprite = $player
+onready var sprite : AnimatedSprite = $player
 
 var active = false
 var _canJump = true
@@ -28,16 +26,15 @@ func setHp(value):
 		emit_signal("died",self)
 		queue_free()
 
-
 func _physics_process(_delta):
 	if active:
 		direction = getDirection(direction)
 		velocity = getVelocity(direction,velocity)
-		move_and_slide(velocity,Vector2.UP,
-					false, 4, PI/4, false)
-		checkGround()
-		if position.y >= 1150:
-			get_tree().reload_current_scene()
+	move_and_slide(velocity,Vector2.UP,
+				false, 4, PI/6, false)
+	checkGround()
+	if position.y >= 1150:
+		get_tree().reload_current_scene()
 	animate()
 
 func getDirection(out):
@@ -72,7 +69,7 @@ func getVerticalVelocity(_velocity):
 	if(!is_on_floor()):
 		out.y += gravity
 	if Input.is_action_just_pressed("ui_up"):
-		if jumpCount < 2:
+		if jumpCount < 1:
 			SFX.play_fx(SFX.FX.JUMP)
 			jumpCount += 1
 			out.y = -speed.y
@@ -80,18 +77,22 @@ func getVerticalVelocity(_velocity):
 	return out
 
 func animate():
-	$player.flip_h = facing != 1
-#	if is_on_floor():
-#		if animator.current_animation != "hurt":
-#			if abs(velocity.x) <= 30 || is_on_wall():
-#				if animator.current_animation != "idle":
-#					animator.play("idle")
-#			else:
-#				if animator.current_animation != "run":
-#					animator.play("run")
-#	else:
-#		if animator.current_animation != "jump":
-#			animator.play("jump")
+	sprite.flip_h = facing != 1
+	if is_on_floor():
+		if sprite.animation != "hurt":
+			if abs(velocity.x) <= 30 || is_on_wall():
+				if sprite.animation != "idle":
+					sprite.play("idle")
+			else:
+				if sprite.animation != "run":
+					sprite.play("run")
+	else:
+		if (velocity.y >= 0 ):
+			if sprite.animation != "fall":
+				sprite.play("fall")
+		else:
+			if sprite.animation != "jump":
+				sprite.play("jump")
 
 func pocket(points):
 	pass

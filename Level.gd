@@ -8,14 +8,15 @@ export onready var pieceScenes = [
 						load("res://Pieces/SPiece.tscn"),
 						load("res://Pieces/S2Piece.tscn"),
 						load("res://Pieces/TPiece.tscn"),
-						load("res://Pieces/LavaPiece.tscn")]
+						load("res://Pieces/LavaPiece.tscn"),
+						load("res://Pieces/SpikePiece.tscn")]
 onready var pieces = $Pieces
 var currentPiece
 var paying
 var dropNewPiece = true
 var timeout = false
 export var creationMargins = Vector2(300,300)
-var mode = "tetris"
+export var mode = "tetris"
 export var tetrisTime = 30
 export var playerTime = 30
 
@@ -29,7 +30,7 @@ func _process(_delta):
 		var newPiecePosition = Vector2(
 			wrapi(randi(),
 			creationMargins.x,get_viewport_rect().size.x/2 - creationMargins.y),
-			 -100)
+			 -30)
 		pieceScenes.shuffle()
 		var nextPiece = pieceScenes[wrapi(randi(),0,pieceScenes.size())]
 		currentPiece = nextPiece.instance()
@@ -48,9 +49,8 @@ func _on_Timer_timeout():
 	match mode:
 		"tetris":
 			timeout = true
-			for piece in pieces.get_children():
-				if(piece.active):
-					yield(piece,"landed")
+			if(currentPiece.active):
+				yield(currentPiece,"landed")
 			$Player.active = true
 			get_tree().call_group("coins", "set_active")
 			mode = "player"

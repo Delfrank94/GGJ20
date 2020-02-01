@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Piece.tscn" type="PackedScene" id=1]
 [ext_resource path="res://arte/assets/piece_o.png" type="Texture" id=2]
-
-[sub_resource type="PhysicsMaterial" id=1]
-absorbent = true
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 63.1606, 63.5476 )
@@ -13,9 +10,6 @@ extents = Vector2( 63.1606, 63.5476 )
 extents = Vector2( 56.3587, 55.3854 )
 
 [node name="BoxPiece" instance=ExtResource( 1 )]
-physics_material_override = SubResource( 1 )
-gravity_scale = 0.5
-moveForce = 10
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 modulate = Color( 0.996078, 0.0509804, 0.0509804, 1 )
