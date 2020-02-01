@@ -7,7 +7,6 @@
 radius = 31.2604
 
 [node name="Coin" type="Area2D"]
-modulate = Color( 1, 0.890196, 0, 1 )
 script = ExtResource( 1 )
 
 [node name="icon" type="Sprite" parent="."]

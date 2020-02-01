@@ -6,6 +6,8 @@
 [ext_resource path="res://arte/assets/lava_2.png" type="Texture" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+absorbent = true
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 81.3031, 31.6439 )
@@ -22,10 +24,13 @@ animations = [ {
 } ]
 
 [node name="BoxPiece" type="RigidBody2D"]
+mass = 0.05
 physics_material_override = SubResource( 1 )
-gravity_scale = 0.5
 can_sleep = false
 script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -42,5 +47,6 @@ shape = SubResource( 3 )
 position = Vector2( 0.880255, 2.20064 )
 scale = Vector2( 0.28637, 0.256433 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

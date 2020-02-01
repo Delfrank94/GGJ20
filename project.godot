@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player.gd"
+}, {
+"base": "Control",
+"class": "RoundBar",
+"language": "GDScript",
+"path": "res://RoundBar.gd"
 } ]
 _global_script_class_icons={
 "Piece": "",
-"Player": ""
+"Player": "",
+"RoundBar": ""
 }
 
 [application]
@@ -29,6 +35,10 @@ _global_script_class_icons={
 config/name="GGJ2020"
 run/main_scene="res://Level.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SFX="*res://SFX.gd"
 
 [display]
 
