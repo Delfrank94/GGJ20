@@ -6,6 +6,7 @@ export onready var pieceScenes = [
 						load("res://Pieces/L2Piece.tscn"),
 						load("res://Pieces/LPiece.tscn"),
 						load("res://Pieces/SPiece.tscn"),
+						load("res://Pieces/S2Piece.tscn"),
 						load("res://Pieces/TPiece.tscn")]
 onready var pieces = $Pieces
 var currentPiece
@@ -19,11 +20,11 @@ func _ready():
 
 func _process(_delta):
 	if dropNewPiece && !timeout:
+		dropNewPiece = false
 		var newPiecePosition = Vector2(
 			wrapi(randi(),
 			creationMargins.x,get_viewport_rect().size.x/2 - creationMargins.y),
-			 0)
-		dropNewPiece = false
+			 -100)
 		pieceScenes.shuffle()
 		var nextPiece = pieceScenes[0]
 		currentPiece = nextPiece.instance()
@@ -43,7 +44,4 @@ func _on_Timer_timeout():
 	for piece in pieces.get_children():
 		if(piece.active):
 			yield(piece,"landed")
-		else:
-			piece.set_deferred("mode",RigidBody2D.MODE_STATIC)
 	$Player.active = true
-	

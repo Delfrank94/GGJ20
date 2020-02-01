@@ -34,7 +34,8 @@ func _physics_process(_delta):
 	if active:
 		direction = getDirection(direction)
 		velocity = getVelocity(direction,velocity)
-		velocity = move_and_slide(velocity,Vector2.UP)
+		move_and_slide(velocity,Vector2.UP,
+					false, 4, PI/4, false)
 		checkGround()
 	animate()
 
@@ -67,7 +68,8 @@ func getHorizontalVelocity(_direction):
 
 func getVerticalVelocity(_velocity):
 	var out = _velocity
-	out.y += gravity
+	if(!is_on_floor()):
+		out.y += gravity
 	if Input.is_action_just_pressed("ui_up"):
 		if jumpCount < 2:
 			jumpCount += 1

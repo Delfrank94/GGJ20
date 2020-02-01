@@ -17,7 +17,7 @@ __meta__ = {
 }
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2( 187.134, 1017.74 )
+position = Vector2( 170.292, 1143 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -30,7 +30,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Floor2" type="StaticBody2D" parent="."]
-position = Vector2( 1733.73, 1013.7 )
+position = Vector2( 1736.9, 1143.81 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -46,7 +46,7 @@ shape = SubResource( 1 )
 position = Vector2( 888.381, 1090.6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
-position = Vector2( 66.8074, -10.021 )
+position = Vector2( 65.2207, 2.25916 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
