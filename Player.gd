@@ -36,6 +36,8 @@ func _physics_process(_delta):
 		move_and_slide(velocity,Vector2.UP,
 					false, 4, PI/4, false)
 		checkGround()
+		if position.y >= 1150:
+			get_tree().reload_current_scene()
 	animate()
 
 func getDirection(out):
