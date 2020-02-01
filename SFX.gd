@@ -2,10 +2,12 @@ extends Control
 
 var _player : AudioStreamPlayer
 
-enum FX { COIN }
+enum FX { COIN, JUMP, LAND }
 
 const streams = {
-	FX.COIN: preload("res://sound/coin.wav")
+	FX.COIN: preload("res://sound/coin.wav"),
+	FX.JUMP: preload("res://sound/jump.wav"),
+	FX.LAND: preload("res://sound/land.wav")
 }
 
 func _ready():
