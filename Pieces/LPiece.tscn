@@ -3,30 +3,30 @@
 [ext_resource path="res://Piece.tscn" type="PackedScene" id=1]
 [ext_resource path="res://arte/assets/piece_l1.png" type="Texture" id=2]
 
-[sub_resource type="PhysicsMaterial" id=5]
+[sub_resource type="PhysicsMaterial" id=1]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 98.2611, 59.872 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 102.158, 64.6232 )
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 50.2676, 29.3679 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 50.2676, 33.5564 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 43.1774, 55.6808 )
+extents = Vector2( 46.3667, 60.8135 )
 
 [node name="BoxPiece" instance=ExtResource( 1 )]
-physics_material_override = SubResource( 5 )
+physics_material_override = SubResource( 1 )
 gravity_scale = 0.5
 moveForce = 10
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 modulate = Color( 0.996078, 0.0509804, 0.0509804, 1 )
-position = Vector2( 6.5861, -20.3571 )
-shape = SubResource( 6 )
+position = Vector2( 1.56865, -16.1759 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 46.796, 8.41383 )
-shape = SubResource( 7 )
+position = Vector2( 48.7821, 8.87376 )
+shape = SubResource( 3 )
 
 [node name="icon" parent="." index="2"]
 position = Vector2( 1.19747, -16.7646 )
@@ -34,6 +34,6 @@ scale = Vector2( 0.426843, 0.426843 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="3"]
-position = Vector2( -44.3066, -20.3571 )
+position = Vector2( -48.0069, -18.2456 )
 shape = SubResource( 4 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

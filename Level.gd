@@ -15,9 +15,13 @@ var paying
 var dropNewPiece = true
 var timeout = false
 export var creationMargins = Vector2(300,300)
+var mode = "tetris"
+export var tetrisTime = 30
+export var playerTime = 30
 
 func _ready():
 	randomize()
+	$Ui.reset(tetrisTime)
 
 func _process(_delta):
 	if dropNewPiece && !timeout:
@@ -41,9 +45,17 @@ func onPieceLanded(piece: Piece):
 
 func _on_Timer_timeout():
 	print("TIEMPOOOOO")
-	timeout = true
-	for piece in pieces.get_children():
-		if(piece.active):
-			yield(piece,"landed")
-	$Player.active = true
-	get_tree().call_group("coins", "set_active")
+	match mode:
+		"tetris":
+			timeout = true
+			for piece in pieces.get_children():
+				if(piece.active):
+					yield(piece,"landed")
+			$Player.active = true
+			get_tree().call_group("coins", "set_active")
+			mode = "player"
+			$Ui.reset(playerTime)
+		"player":
+			#gameoverr
+			yield(get_tree().create_timer(1),"timeout")
+			get_tree().reload_current_scene()
