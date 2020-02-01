@@ -6,35 +6,35 @@ export var _dashSpeed = 350
 export var gravity = 20
 export var maxSpeed = 200
 export var speed = Vector2(50,550)
+
+onready var animator = $AnimationPlayer
+onready var sprite = $player
+
 var active = false
-
 var _canJump = true
-
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 var jumpCount = 0
-onready var animator = $AnimationPlayer
 var facing = 1
 var hp = 4 setget setHp
 var onGround = false
-onready var sprite = $player
 
 signal died
 
 func setHp(value):
 	hp = value
-	$PlayerTag.reduceLives(hp)
-	animator.play("hurt")
+#	animator.play("hurt")
 	if hp <= 0:
-		yield(get_tree().create_timer(1.2),"timeout")
 		emit_signal("died",self)
+		queue_free()
 
 
 func _physics_process(_delta):
 	if active:
 		direction = getDirection(direction)
 		velocity = getVelocity(direction,velocity)
-		velocity = move_and_slide(velocity,Vector2.UP)
+		move_and_slide(velocity,Vector2.UP,
+					false, 4, PI/4, false)
 		checkGround()
 	animate()
 
@@ -67,7 +67,8 @@ func getHorizontalVelocity(_direction):
 
 func getVerticalVelocity(_velocity):
 	var out = _velocity
-	out.y += gravity
+	if(!is_on_floor()):
+		out.y += gravity
 	if Input.is_action_just_pressed("ui_up"):
 		if jumpCount < 2:
 			jumpCount += 1
@@ -88,3 +89,6 @@ func animate():
 #	else:
 #		if animator.current_animation != "jump":
 #			animator.play("jump")
+
+func pocket(points):
+	pass
