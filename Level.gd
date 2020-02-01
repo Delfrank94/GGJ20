@@ -7,7 +7,8 @@ export onready var pieceScenes = [
 						load("res://Pieces/LPiece.tscn"),
 						load("res://Pieces/SPiece.tscn"),
 						load("res://Pieces/S2Piece.tscn"),
-						load("res://Pieces/TPiece.tscn")]
+						load("res://Pieces/TPiece.tscn"),
+						load("res://Pieces/LavaPiece.tscn")]
 onready var pieces = $Pieces
 var currentPiece
 var paying

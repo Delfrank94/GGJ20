@@ -6,28 +6,27 @@ export var _dashSpeed = 350
 export var gravity = 20
 export var maxSpeed = 200
 export var speed = Vector2(50,550)
+
+onready var animator = $AnimationPlayer
+onready var sprite = $player
+
 var active = false
-
 var _canJump = true
-
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 var jumpCount = 0
-onready var animator = $AnimationPlayer
 var facing = 1
 var hp = 4 setget setHp
 var onGround = false
-onready var sprite = $player
 
 signal died
 
 func setHp(value):
 	hp = value
-	$PlayerTag.reduceLives(hp)
-	animator.play("hurt")
+#	animator.play("hurt")
 	if hp <= 0:
-		yield(get_tree().create_timer(1.2),"timeout")
 		emit_signal("died",self)
+		queue_free()
 
 
 func _physics_process(_delta):
