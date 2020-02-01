@@ -36,6 +36,8 @@ func _physics_process(_delta):
 		move_and_slide(velocity,Vector2.UP,
 					false, 4, PI/4, false)
 		checkGround()
+		if position.y >= 1150:
+			get_tree().reload_current_scene()
 	animate()
 
 func getDirection(out):
@@ -71,6 +73,7 @@ func getVerticalVelocity(_velocity):
 		out.y += gravity
 	if Input.is_action_just_pressed("ui_up"):
 		if jumpCount < 2:
+			#SFX.play_fx(SFX.FX.JUMP)
 			jumpCount += 1
 			out.y = -speed.y
 			onGround = false

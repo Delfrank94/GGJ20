@@ -70,6 +70,6 @@ func setPorcentage(value, maxValue, interpolate = true):
 		tw.start()
 	else:
 		porcentage = newPorcentage
-#	yield(tw,"tween_completed")
+	yield(tw,"tween_completed")
 #	return
 

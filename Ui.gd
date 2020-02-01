@@ -13,4 +13,4 @@ func _process(_delta):
 func reset(time):
 	maxTime = time
 	countdownTimer.start(time)
-	$RoundBar.porcentage = 100
+	$RoundBar.setPorcentage(countdownTimer.time_left,maxTime)

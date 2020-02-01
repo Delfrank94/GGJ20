@@ -25,5 +25,6 @@ func landed():
 
 func _on_Area2D_body_entered(body):
 	if body != self && active:
+		#SFX.play_fx(SFX.FX.LAND)
 		landed()
 		emit_signal("landed", self)

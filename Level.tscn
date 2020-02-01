@@ -3,15 +3,17 @@
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Level.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://BurningArea.gd" type="Script" id=4]
+[ext_resource path="res://TimeLabel.gd" type="Script" id=5]
 [ext_resource path="res://Muro.otf" type="DynamicFontData" id=6]
-[ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
-[ext_resource path="res://RoundBar.gd" type="Script" id=8]
-[ext_resource path="res://Ui.gd" type="Script" id=9]
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/esc_floor_2.png-834bf4125216e2099bd71b001cecee8c.stex"
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 265.604, 63.6351 )
 
+<<<<<<< HEAD
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 739.177, 63.6351 )
 
@@ -20,6 +22,21 @@ extents = Vector2( 599.863, 12.9777 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 599.933, 17.1656 )
+=======
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 376.619, 63.6351 )
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/esc_puente.png-306514a9f56d3bf292307966951c2397.stex"
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 184.608, 41.7964 )
+
+[sub_resource type="StreamTexture" id=5]
+flags = 4
+load_path = "res://.import/esc_floor_1.png-e4ce2c81a0a52649d63fb4fdc1c626fd.stex"
+>>>>>>> e4eeabd6d5c68fd3674fba80a2c12a71bad2cc8f
 
 [sub_resource type="DynamicFont" id=5]
 size = 50
@@ -27,21 +44,30 @@ font_data = ExtResource( 6 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 2 )
+<<<<<<< HEAD
 tetrisTime = 5
+=======
+__meta__ = {
+"_edit_horizontal_guides_": [ 71.4116, 1077.94 ]
+}
+>>>>>>> e4eeabd6d5c68fd3674fba80a2c12a71bad2cc8f
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2( 170.292, 1125 )
+position = Vector2( 166.049, 877.513 )
+scale = Vector2( 1, 3.56 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="icon" type="Sprite" parent="Floor"]
-scale = Vector2( 5.71763, 2.02802 )
-texture = ExtResource( 1 )
+position = Vector2( -237.557, -100.265 )
+scale = Vector2( 0.850413, 0.276775 )
+texture = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource( 1 )
 
+<<<<<<< HEAD
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2( -60.1518, 507.128 )
 rotation = 1.5708
@@ -64,26 +90,81 @@ shape = SubResource( 2 )
 
 [node name="Floor2" type="StaticBody2D" parent="."]
 position = Vector2( 1736.9, 1119.81 )
+=======
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2( -119.375, -158.081 )
+scale = Vector2( 0.360001, 1.48453 )
+shape = SubResource( 7 )
+
+[node name="Floor4" type="StaticBody2D" parent="."]
+position = Vector2( 472.027, 753.086 )
+scale = Vector2( 0.679999, 1.12 )
+>>>>>>> e4eeabd6d5c68fd3674fba80a2c12a71bad2cc8f
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="icon" type="Sprite" parent="Floor2"]
-scale = Vector2( 5.71763, 1.99847 )
+[node name="icon" type="Sprite" parent="Floor4"]
+position = Vector2( 45, -61.6637 )
+scale = Vector2( 0.609396, 0.410596 )
+texture = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4"]
+position = Vector2( 3.058, -49.62 )
+shape = SubResource( 3 )
+
+[node name="Floor8" type="StaticBody2D" parent="."]
+position = Vector2( 1423.2, 425.396 )
+scale = Vector2( 0.679999, 1.12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="icon" type="Sprite" parent="Floor8"]
+position = Vector2( -32.3345, -62.4595 )
+scale = Vector2( 0.609396, 0.410596 )
+texture = SubResource( 2 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor8"]
+position = Vector2( 3.058, -49.62 )
+shape = SubResource( 3 )
+
+[node name="Floor7" type="Area2D" parent="."]
+position = Vector2( 1046.79, 1173.66 )
+scale = Vector2( 7.16, 1.12 )
+
+[node name="icon" type="Sprite" parent="Floor7"]
+position = Vector2( -2.08351, 182.034 )
+scale = Vector2( 5.71763, 2.02802 )
 texture = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7"]
+position = Vector2( 0, 186.473 )
 shape = SubResource( 1 )
 
-[node name="Floor3" type="StaticBody2D" parent="."]
-position = Vector2( 888.381, 1090.6 )
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2( 1739.03, 710.524 )
+scale = Vector2( -1.01678, 6.10131 )
 __meta__ = {
 "_edit_group_": true
 }
 
+<<<<<<< HEAD
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
 position = Vector2( 65.2207, -5.74084 )
 shape = SubResource( 3 )
+=======
+[node name="icon2" type="Sprite" parent="Floor2"]
+position = Vector2( -59.0739, 0.110245 )
+rotation = 2.27894e-09
+scale = Vector2( 0.920829, 0.142031 )
+texture = SubResource( 5 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+shape = SubResource( 1 )
+>>>>>>> e4eeabd6d5c68fd3674fba80a2c12a71bad2cc8f
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -91,10 +172,11 @@ one_shot = true
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 197.652, 1041.39 )
+position = Vector2( 238.32, 621.233 )
 
 [node name="Pieces" type="Node2D" parent="."]
 
+<<<<<<< HEAD
 [node name="BurningArea" type="Area2D" parent="."]
 position = Vector2( 953.437, 1083.99 )
 script = ExtResource( 4 )
@@ -104,14 +186,15 @@ modulate = Color( 1, 0, 0, 1 )
 show_behind_parent = true
 shape = SubResource( 4 )
 
+=======
+>>>>>>> e4eeabd6d5c68fd3674fba80a2c12a71bad2cc8f
 [node name="Ui" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 1920, 1080 )
-script = ExtResource( 9 )
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+<<<<<<< HEAD
 timerPath = NodePath("../Timer")
 
 [node name="RoundBar" type="Control" parent="Ui"]
@@ -140,23 +223,18 @@ margin_bottom = 246.0
 custom_fonts/normal_font = SubResource( 5 )
 text = "00 : 00"
 scroll_active = false
+=======
+
+[node name="TimeLabel" type="RichTextLabel" parent="Ui"]
+margin_left = 606.0
+margin_top = 160.0
+margin_right = 812.0
+margin_bottom = 256.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "000"
+script = ExtResource( 5 )
+>>>>>>> e4eeabd6d5c68fd3674fba80a2c12a71bad2cc8f
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Coins" type="Node2D" parent="."]
-visible = false
-
-[node name="Coin4" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 952.112, 819.509 )
-
-[node name="Coin3" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 854.061, 936.11 )
-
-[node name="Coin" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 1064.31, 949.666 )
-
-[node name="Coin2" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 685.355, 864.865 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="body_entered" from="BurningArea" to="BurningArea" method="_on_BurningArea_body_entered"]

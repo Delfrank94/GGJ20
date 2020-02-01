@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Level.gd" type="Script" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Ui.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/esc_floor_2.png-834bf4125216e2099bd71b001cecee8c.stex"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 184.608, 63.6351 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 376.619, 63.6351 )
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/esc_puente.png-306514a9f56d3bf292307966951c2397.stex"
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 184.608, 41.7964 )
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/esc_floor_1.png-e4ce2c81a0a52649d63fb4fdc1c626fd.stex"
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 71.4116 ]
+}
+tetrisTime = 5
+playerTime = 15
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 166.049, 877.513 )
+scale = Vector2( 1, 3.56 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="icon" type="Sprite" parent="Floor"]
+position = Vector2( -237.557, -100.265 )
+scale = Vector2( 0.850413, 0.276775 )
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2( -119.375, -158.081 )
+scale = Vector2( 0.360001, 1.48453 )
+shape = SubResource( 3 )
+
+[node name="Floor4" type="StaticBody2D" parent="."]
+position = Vector2( 472.027, 753.086 )
+scale = Vector2( 0.679999, 1.12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="icon" type="Sprite" parent="Floor4"]
+position = Vector2( 45, -61.6637 )
+scale = Vector2( 0.609396, 0.410596 )
+texture = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4"]
+position = Vector2( 3.058, -49.62 )
+shape = SubResource( 5 )
+
+[node name="Floor8" type="StaticBody2D" parent="."]
+position = Vector2( 1423.2, 425.396 )
+scale = Vector2( 0.679999, 1.12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="icon" type="Sprite" parent="Floor8"]
+position = Vector2( -32.3345, -62.4595 )
+scale = Vector2( 0.609396, 0.410596 )
+texture = SubResource( 4 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor8"]
+position = Vector2( 3.058, -49.62 )
+shape = SubResource( 5 )
+
+[node name="Floor7" type="Area2D" parent="."]
+position = Vector2( 1046.79, 1173.66 )
+scale = Vector2( 7.16, 1.12 )
+
+[node name="icon" type="Sprite" parent="Floor7"]
+position = Vector2( -2.08351, 182.034 )
+scale = Vector2( 5.71763, 2.02802 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7"]
+position = Vector2( 0, 186.473 )
+shape = SubResource( 2 )
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2( 1739.03, 710.524 )
+scale = Vector2( -1.01678, 6.10131 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="icon2" type="Sprite" parent="Floor2"]
+position = Vector2( -59.0739, 0.110245 )
+rotation = 2.27894e-09
+scale = Vector2( 0.920829, 0.142031 )
+texture = SubResource( 6 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 238.32, 621.233 )
+
+[node name="Pieces" type="Node2D" parent="."]
+
+[node name="Ui" parent="." instance=ExtResource( 4 )]
+margin_right = 1930.0
+margin_bottom = 1082.0
+timerPath = NodePath("../Timer")
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
