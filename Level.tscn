@@ -25,6 +25,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 71.4116 ]
 }
+creationMargins = null
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 170.292, 1125 )

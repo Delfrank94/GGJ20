@@ -89,3 +89,6 @@ func animate():
 #	else:
 #		if animator.current_animation != "jump":
 #			animator.play("jump")
+
+func pocket(points):
+	pass

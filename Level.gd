@@ -46,3 +46,5 @@ func _on_Timer_timeout():
 		if(piece.active):
 			yield(piece,"landed")
 	$Player.active = true
+	get_tree().call_group("coins", "set_active")
+	
