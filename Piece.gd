@@ -19,6 +19,8 @@ func _physics_process(_delta):
 			apply_impulse(Vector2.ZERO,Vector2.RIGHT * moveForce)
 		if Input.is_action_pressed("ui_down"):
 			apply_impulse(Vector2.ZERO,Vector2.DOWN * moveForce)
+		if Input.is_action_just_pressed("ui_down"):
+			SFX.play_fx(SFX.FX.RUSH)
 
 func landed():
 	active = false
