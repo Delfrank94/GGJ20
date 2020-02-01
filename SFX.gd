@@ -17,7 +17,6 @@ const streams = {
 }
 
 func _ready():
-	print(8 % 8)
 	_audio_players.resize(MAX_AUDIO_PLAYERS)
 	for i in range(MAX_AUDIO_PLAYERS):
 		_audio_players[i] = AudioStreamPlayer.new()

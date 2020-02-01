@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ui.tscn" type="PackedScene" id=4]
+
+[sub_resource type="PhysicsMaterial" id=7]
+absorbent = true
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
@@ -27,16 +30,21 @@ load_path = "res://.import/esc_floor_1.png-e4ce2c81a0a52649d63fb4fdc1c626fd.stex
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 2 )
-playerTime = 15
+creationMargins = Vector2( 400, 500 )
+tetrisTime = 1
 
 [node name="Ui" parent="." instance=ExtResource( 4 )]
 margin_right = 1930.0
 margin_bottom = 1082.0
 timerPath = NodePath("../Timer")
 
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 146.737, 554.213 )
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 21.8475, 877.513 )
 scale = Vector2( 1, 3.56 )
+physics_material_override = SubResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -54,45 +62,48 @@ position = Vector2( -119.375, -158.081 )
 scale = Vector2( 0.360001, 1.48453 )
 shape = SubResource( 3 )
 
-[node name="Floor4" type="StaticBody2D" parent="."]
-position = Vector2( 327.825, 753.086 )
+[node name="Ledge" type="StaticBody2D" parent="."]
+position = Vector2( 329.85, 753.318 )
 scale = Vector2( 0.679999, 1.12 )
+physics_material_override = SubResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="icon" type="Sprite" parent="Floor4"]
+[node name="icon" type="Sprite" parent="Ledge"]
 position = Vector2( 45, -61.6637 )
 scale = Vector2( 0.609396, 0.410596 )
 texture = SubResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge"]
 position = Vector2( 3.058, -49.62 )
 shape = SubResource( 5 )
 
-[node name="Floor8" type="StaticBody2D" parent="."]
+[node name="Ledge2" type="StaticBody2D" parent="."]
 position = Vector2( 1423.2, 425.396 )
 scale = Vector2( 0.679999, 1.12 )
+physics_material_override = SubResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="icon" type="Sprite" parent="Floor8"]
+[node name="icon" type="Sprite" parent="Ledge2"]
 position = Vector2( -32.3345, -62.4595 )
 scale = Vector2( 0.609396, 0.410596 )
 texture = SubResource( 4 )
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge2"]
 position = Vector2( 3.058, -49.62 )
 shape = SubResource( 5 )
 
 [node name="Floor7" type="StaticBody2D" parent="."]
 position = Vector2( 994.508, 1140.48 )
 scale = Vector2( 7.16, 1.12 )
+physics_material_override = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7"]
-position = Vector2( -1.58666, 10.1432 )
+position = Vector2( -2.49547, -142.939 )
 shape = SubResource( 2 )
 
 [node name="Floor2" type="StaticBody2D" parent="."]
@@ -116,9 +127,6 @@ shape = SubResource( 2 )
 wait_time = 10.0
 one_shot = true
 autostart = true
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 238.32, 621.233 )
 
 [node name="Pieces" type="Node2D" parent="."]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
