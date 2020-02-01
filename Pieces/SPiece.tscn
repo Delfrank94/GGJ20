@@ -6,16 +6,16 @@
 [sub_resource type="PhysicsMaterial" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 79.7003, 58.6745 )
+extents = Vector2( 58.3468, 32.9655 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 61.6914, 41.3275 )
+extents = Vector2( 57.5106, 32.5474 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 56.255, 32.4575 )
+extents = Vector2( 55, 30 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 59.076, 33.551 )
+extents = Vector2( 55, 30 )
 
 [node name="BoxPiece" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
@@ -24,12 +24,12 @@ moveForce = 10
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 modulate = Color( 0.996078, 0.0509804, 0.0509804, 1 )
-position = Vector2( -20.9061, 55.6101 )
+position = Vector2( -23.4148, 25.0872 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" index="1"]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 22.1604, -28.8503 )
+position = Vector2( 19.6517, -35.1221 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -41,6 +41,6 @@ scale = Vector2( 0.426843, 0.426843 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="3"]
-position = Vector2( 19.3402, -25.3376 )
+position = Vector2( 19.3402, -35.3725 )
 shape = SubResource( 5 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -27,9 +27,6 @@ load_path = "res://.import/esc_floor_1.png-e4ce2c81a0a52649d63fb4fdc1c626fd.stex
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 71.4116 ]
-}
 playerTime = 15
 
 [node name="Ui" parent="." instance=ExtResource( 4 )]
@@ -38,7 +35,7 @@ margin_bottom = 1082.0
 timerPath = NodePath("../Timer")
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2( 166.049, 877.513 )
+position = Vector2( 21.8475, 877.513 )
 scale = Vector2( 1, 3.56 )
 __meta__ = {
 "_edit_group_": true
@@ -58,7 +55,7 @@ scale = Vector2( 0.360001, 1.48453 )
 shape = SubResource( 3 )
 
 [node name="Floor4" type="StaticBody2D" parent="."]
-position = Vector2( 472.027, 753.086 )
+position = Vector2( 327.825, 753.086 )
 scale = Vector2( 0.679999, 1.12 )
 __meta__ = {
 "_edit_group_": true
