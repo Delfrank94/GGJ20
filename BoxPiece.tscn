@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Piece.tscn" type="PackedScene" id=1]
+
+[sub_resource type="PhysicsMaterial" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.9791, 31.7738 )
 
 [node name="BoxPiece" instance=ExtResource( 1 )]
+physics_material_override = SubResource( 2 )
+gravity_scale = 0.5
+moveForce = 10
+
+[node name="icon" parent="." index="0"]
+position = Vector2( -0.416084, -0.416084 )
+scale = Vector2( 0.986997, 0.986997 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
