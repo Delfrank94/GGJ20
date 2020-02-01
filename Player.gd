@@ -73,7 +73,7 @@ func getVerticalVelocity(_velocity):
 		out.y += gravity
 	if Input.is_action_just_pressed("ui_up"):
 		if jumpCount < 2:
-			#SFX.play_fx(SFX.FX.JUMP)
+			SFX.play_fx(SFX.FX.JUMP)
 			jumpCount += 1
 			out.y = -speed.y
 			onGround = false
