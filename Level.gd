@@ -1,12 +1,18 @@
 extends Node2D
 
-onready var pieceScene = load("res://BoxPiece.tscn")
+export onready var pieceScenes = [
+						load("res://Pieces/BoxPiece.tscn"),
+						load("res://Pieces/IPiece.tscn"),
+						load("res://Pieces/L2Piece.tscn"),
+						load("res://Pieces/LPiece.tscn"),
+						load("res://Pieces/SPiece.tscn"),
+						load("res://Pieces/TPiece.tscn")]
 onready var pieces = $Pieces
 var currentPiece
 var paying
 var dropNewPiece = true
 var timeout = false
-export var creationMargins = Vector2(0,0)
+export var creationMargins = Vector2(300,300)
 
 func _ready():
 	randomize()
@@ -18,7 +24,9 @@ func _process(_delta):
 			creationMargins.x,get_viewport_rect().size.x/2 - creationMargins.y),
 			 0)
 		dropNewPiece = false
-		currentPiece = pieceScene.instance()
+		pieceScenes.shuffle()
+		var nextPiece = pieceScenes[0]
+		currentPiece = nextPiece.instance()
 		currentPiece.position = newPiecePosition
 		pieces.add_child(currentPiece)
 		currentPiece.connect("landed",self,"onPieceLanded")
@@ -28,7 +36,6 @@ func onPieceLanded(piece: Piece):
 		if !timeout:
 			yield(get_tree().create_timer(.5),"timeout")
 			dropNewPiece = true
-
 
 func _on_Timer_timeout():
 	print("TIEMPOOOOO")
