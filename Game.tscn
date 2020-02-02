@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://LevelOne.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelTwo.tscn" type="PackedScene" id=2]
@@ -7,53 +7,71 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ScnDetector.gd" type="Script" id=6]
 [ext_resource path="res://LevelThree.tscn" type="PackedScene" id=7]
-[ext_resource path="res://arte/assets/bg.png" type="Texture" id=8]
+[ext_resource path="res://arte/assets/tutorial/player/idle.png" type="Texture" id=8]
+[ext_resource path="res://arte/assets/tutorial/player/jump_4.png" type="Texture" id=9]
+[ext_resource path="res://arte/assets/tutorial/player/jump_3.png" type="Texture" id=10]
+[ext_resource path="res://arte/assets/tutorial/player/jump_1.png" type="Texture" id=11]
+[ext_resource path="res://arte/assets/tutorial/player/jump_2.png" type="Texture" id=12]
+[ext_resource path="res://arte/assets/tutorial/player/left_1.png" type="Texture" id=13]
+[ext_resource path="res://arte/assets/tutorial/player/right_1.png" type="Texture" id=14]
+[ext_resource path="res://arte/assets/tutorial/player/left_2.png" type="Texture" id=15]
+[ext_resource path="res://arte/assets/tutorial/player/right_2.png" type="Texture" id=16]
+[ext_resource path="res://arte/assets/tutorial/tetris/left_3.png" type="Texture" id=17]
+[ext_resource path="res://arte/assets/tutorial/tetris/right_1.png" type="Texture" id=18]
+[ext_resource path="res://arte/assets/tutorial/tetris/drop_1.png" type="Texture" id=19]
+[ext_resource path="res://arte/assets/tutorial/tetris/drop_2.png" type="Texture" id=20]
+[ext_resource path="res://arte/assets/tutorial/tetris/flip_2.png" type="Texture" id=21]
+[ext_resource path="res://arte/assets/tutorial/tetris/left_1.png" type="Texture" id=22]
+[ext_resource path="res://arte/assets/tutorial/tetris/idle.png" type="Texture" id=23]
+[ext_resource path="res://arte/assets/tutorial/tetris/left_2.png" type="Texture" id=24]
+[ext_resource path="res://arte/assets/tutorial/tetris/flip_1.png" type="Texture" id=25]
+[ext_resource path="res://arte/assets/tutorial/tetris/drop_3.png" type="Texture" id=26]
+[ext_resource path="res://arte/assets/tutorial/tetris/right_2.png" type="Texture" id=27]
+[ext_resource path="res://arte/assets/tutorial/tetris/right_3.png" type="Texture" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 91.963, 223.713 )
 
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "default",
+"speed": 3.0
+} ]
+
 [node name="Game" type="Node2D"]
 position = Vector2( 35.2361, 29.3633 )
 script = ExtResource( 4 )
-tetrisTime = 45
-
-[node name="bg" type="Sprite" parent="."]
-position = Vector2( 2702.23, 513.716 )
-scale = Vector2( 2.92228, 2.92228 )
-z_index = -99
-texture = ExtResource( 8 )
+tetrisTime = 15
 
 [node name="Pieces" type="Node2D" parent="."]
 
 [node name="Levels" type="Node2D" parent="."]
 
 [node name="Level2" parent="Levels" instance=ExtResource( 7 )]
-position = Vector2( 3361.08, -510.469 )
+position = Vector2( 2789.35, -16.7402 )
 script = null
-
-[node name="Area2D3" type="Area2D" parent="Levels/Level2"]
-position = Vector2( -1676.53, 721.336 )
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
-nextLevelCameraPos = NodePath("../level2Cam")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/Level2/Area2D3"]
-position = Vector2( 0, 30.2186 )
-shape = SubResource( 1 )
 
 [node name="level2Cam" type="Position2D" parent="Levels/Level2" groups=[
 "camPoints",
 ]]
-position = Vector2( 1161.17, 517.886 )
+position = Vector2( 1147.17, 517.886 )
 
 [node name="Level1" parent="Levels" instance=ExtResource( 2 )]
 position = Vector2( 1479.82, -156.197 )
 script = null
 
 [node name="Area2D2" type="Area2D" parent="Levels/Level1"]
-position = Vector2( 1435.04, 7.55878 )
+position = Vector2( 1736.16, 539.147 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
@@ -73,15 +91,19 @@ position = Vector2( 1115, 487.083 )
 script = null
 
 [node name="Area2D" type="Area2D" parent="Levels/Level"]
-position = Vector2( 1912.64, 232.711 )
+position = Vector2( 1894.09, 291.438 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
 nextLevelCameraPos = NodePath("../../Level1/level1Cam")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/Level/Area2D"]
+position = Vector2( 0, 30.2186 )
+shape = SubResource( 1 )
+
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 140.727, 546.162 )
+position = Vector2( 1613.09, 327.84 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -92,10 +114,10 @@ position = Vector2( 923.95, 507.223 )
 current = true
 
 [node name="Ui" parent="Camera2D" instance=ExtResource( 3 )]
-margin_left = -66.038
-margin_top = -493.392
-margin_right = -66.038
-margin_bottom = -493.392
+margin_left = -956.244
+margin_top = -540.21
+margin_right = 963.756
+margin_bottom = 539.79
 timerPath = NodePath("../../Timer")
 
 [node name="PieceMarginA" type="Position2D" parent="Camera2D"]
@@ -104,12 +126,25 @@ position = Vector2( -649.525, -365.043 )
 [node name="PieceMarginB" type="Position2D" parent="Camera2D"]
 position = Vector2( 375.113, -372.596 )
 
+[node name="PlayerTutorial" type="AnimatedSprite" parent="Camera2D"]
+visible = false
+scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+frame = 4
+playing = true
+
+[node name="TetrisTutorial2" type="AnimatedSprite" parent="Camera2D"]
+position = Vector2( -31.7424, 5.4635 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+frame = 11
+playing = true
+
 [node name="Tween" type="Tween" parent="."]
-[connection signal="body_entered" from="Levels/Level2/Area2D3" to="Levels/Level2/Area2D3" method="_on_Area2D_body_entered"]
-[connection signal="changeCamera" from="Levels/Level2/Area2D3" to="." method="_on_Area2D_changeCamera"]
 [connection signal="body_entered" from="Levels/Level1/Area2D2" to="Levels/Level1/Area2D2" method="_on_Area2D_body_entered"]
 [connection signal="changeCamera" from="Levels/Level1/Area2D2" to="." method="_on_Area2D_changeCamera"]
 [connection signal="body_entered" from="Levels/Level/Area2D" to="Levels/Level/Area2D" method="_on_Area2D_body_entered"]
 [connection signal="changeCamera" from="Levels/Level/Area2D" to="." method="_on_Area2D_changeCamera"]
+[connection signal="coin" from="Player" to="Camera2D/Ui" method="_on_Player_coin"]
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
