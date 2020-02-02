@@ -29,7 +29,8 @@ func play_fx(key):
 		_stream_tags[_audio_player_idx] = key
 		_audio_players[_audio_player_idx].set_stream(stream)
 		_audio_players[_audio_player_idx].play()
-		_audio_players[_audio_player_idx].connect("finished", self, "_stream_untag", [_audio_player_idx])
+		if !_audio_players[_audio_player_idx].is_connected("finished", self, "_stream_untag"):
+			_audio_players[_audio_player_idx].connect("finished", self, "_stream_untag", [_audio_player_idx])
 		_audio_player_idx = (_audio_player_idx + 1) % MAX_AUDIO_PLAYERS
 
 func _stream_untag(idx):

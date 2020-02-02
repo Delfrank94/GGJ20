@@ -64,6 +64,9 @@ func _process(_delta: float) -> void:
 	_lastValue = porcentage
 
 func setPorcentage(value, maxValue, interpolate = true):
+	if maxValue == 0:
+		print("maxValue is 0")
+		return
 	var newPorcentage = (value * 100 / maxValue)
 	if interpolate:
 		tw.interpolate_property(self, "porcentage",porcentage,newPorcentage,0.5,Tween.TRANS_BOUNCE,Tween.EASE_IN)

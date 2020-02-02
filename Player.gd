@@ -16,6 +16,7 @@ var jumpCount = 0
 var facing = 1
 var hp = 4 setget setHp
 var onGround = false
+var coins = 0
 
 signal died
 
@@ -30,6 +31,8 @@ func _physics_process(_delta):
 	if active:
 		direction = getDirection(direction)
 		velocity = getVelocity(direction,velocity)
+	else:
+		velocity = Vector2(0,0)
 	move_and_slide(velocity,Vector2.UP,
 				false, 4, PI/6, false)
 	checkGround()
@@ -98,10 +101,6 @@ func animate():
 			else:
 				if sprite.animation != "jump":
 					sprite.play("jump")
-
-func pocket(points):
-	pass
-
 
 func _on_Area2D_body_entered(body: Piece):
 	if body is Piece:
