@@ -110,7 +110,7 @@ autostart = true
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource( 9 )]
-position = Vector2( 646.652, 553.302 )
+position = Vector2( 660.351, 560.152 )
 scale = Vector2( 2.10039, 2.10039 )
 
 [node name="Coin2" parent="Coins" instance=ExtResource( 9 )]
