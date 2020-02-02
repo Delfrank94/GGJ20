@@ -26,7 +26,6 @@ func setHp(value):
 	$AnimationPlayer.play("hurt")
 	if hp <= 0:
 		emit_signal("died")
-		queue_free()
 
 func setCoins(value):
 	coins = value
@@ -39,7 +38,7 @@ func _physics_process(_delta):
 	else:
 		velocity = Vector2(0,0)
 	move_and_slide(velocity,Vector2.UP,
-				false, 4, PI/6, false)
+				false, 4, PI/4, false)
 	checkGround()
 	if position.y >= 1150:
 		get_tree().reload_current_scene()
