@@ -13,7 +13,8 @@ var _music_tracks : Array = [
 	preload("res://sound/music01.ogg"),
 	preload("res://sound/music02.ogg"),
 	preload("res://sound/music03.ogg"),
-	preload("res://sound/music04.ogg")
+	preload("res://sound/music04.ogg"),
+	preload("res://sound/music05.ogg")
 ]
 
 enum FX { COIN, JUMP, LAND, RUSH, EXPLODE }
@@ -45,9 +46,9 @@ func play_fx(key):
 		_audio_player_idx = (_audio_player_idx + 1) % MAX_AUDIO_PLAYERS
 
 func play_music():
-	_music_tracks.shuffle()
+	var idx : int = randi() % _music_tracks.size()
 	_music_tracks[0].set_loop(false)
-	_music_player.set_stream(_music_tracks[0])
+	_music_player.set_stream(_music_tracks[idx])
 	_music_player.play()
 	if !_music_player.is_connected("finished", self, "play_music"):
 		_music_player.connect("finished", self, "play_music")

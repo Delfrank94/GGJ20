@@ -3,6 +3,7 @@
 [ext_resource path="res://arte/assets/scaffolding_palito.png" type="Texture" id=1]
 [ext_resource path="res://Level.gd" type="Script" id=2]
 [ext_resource path="res://Water.tscn" type="PackedScene" id=3]
+[ext_resource path="res://arte/assets/background/obj3.png" type="Texture" id=4]
 [ext_resource path="res://arte/assets/scaff_2.png" type="Texture" id=5]
 [ext_resource path="res://arte/assets/scaffolding.png" type="Texture" id=6]
 [ext_resource path="res://arte/assets/scaff_bit.png" type="Texture" id=7]
@@ -18,12 +19,9 @@ load_path = "res://.import/esc_puente.png-306514a9f56d3bf292307966951c2397.stex"
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 184.608, 41.7964 )
 
-[sub_resource type="StreamTexture" id=4]
+[sub_resource type="StreamTexture" id=7]
 flags = 4
-load_path = "res://.import/esc_floor_1.png-e4ce2c81a0a52649d63fb4fdc1c626fd.stex"
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 202.694, 63.6351 )
+load_path = "res://.import/esc_floor_4.png-60e31c50088dd0000addf8fc6cf49da3.stex"
 
 [sub_resource type="Animation" id=6]
 length = 4.0
@@ -92,15 +90,14 @@ __meta__ = {
 }
 
 [node name="icon2" type="Sprite" parent="Floor2"]
-position = Vector2( -59.0739, 0.110245 )
+position = Vector2( -130.877, 5.47437 )
 rotation = 2.27894e-09
 scale = Vector2( 0.920829, 0.142031 )
-texture = SubResource( 4 )
+texture = SubResource( 7 )
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
-position = Vector2( -19.1991, 1.06651 )
-shape = SubResource( 5 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor2"]
+polygon = PoolVector2Array( 392.667, 21.9256, 388.198, 73.6879, -237.483, 73.6879, -230.78, 23.0427, -345.208, 29.001, -544.085, 29.7458, -651.344, 20.8084, -644.641, 7.40231, -582.073, 7.40231, -474.813, 15.9673, -383.195, 15.9673, -269.232, 8.51948, -220.071, 8.14709, -213.367, -56.9071, -184.318, -61.0034, 95.004, -59.3767, 106.177, -55.6528, 103.943, -34.4265, 139.696, -34.4265, 126.288, 22.1769 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -110,11 +107,11 @@ autostart = true
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource( 9 )]
-position = Vector2( 660.351, 560.152 )
+position = Vector2( 564.534, 387.063 )
 scale = Vector2( 2.10039, 2.10039 )
 
 [node name="Coin2" parent="Coins" instance=ExtResource( 9 )]
-position = Vector2( 987.297, 908.435 )
+position = Vector2( 925.141, 155.374 )
 scale = Vector2( 2.10039, 2.10039 )
 offset = Vector2( 0, -1.50274 )
 
@@ -135,9 +132,13 @@ anims/waterMovement = SubResource( 6 )
 [node name="Back" type="Node2D" parent="."]
 
 [node name="scaffolding" type="Sprite" parent="Back"]
-position = Vector2( 506.814, 551.455 )
+position = Vector2( 507.764, 551.455 )
 z_index = -1
 texture = ExtResource( 6 )
+
+[node name="obj3" type="Sprite" parent="Back/scaffolding"]
+position = Vector2( 624.836, 368.608 )
+texture = ExtResource( 4 )
 
 [node name="scaffolding2" type="Sprite" parent="Back"]
 position = Vector2( 1655.21, 535.985 )
