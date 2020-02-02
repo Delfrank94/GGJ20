@@ -7,7 +7,6 @@
 radius = 57.3482
 
 [node name="SpikePiece" instance=ExtResource( 5 )]
-rotation = 0.0
 hazard = true
 
 [node name="CollisionShape2D" parent="." index="0"]

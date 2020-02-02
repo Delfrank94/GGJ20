@@ -10,11 +10,10 @@ func _ready():
 	rotation_degrees = 45 * (randi() % 5)
 	apply_impulse(Vector2.ZERO,Vector2.DOWN * moveForce)
 
-
 func _physics_process(_delta):
 	if active:
 		if Input.is_action_just_pressed("ui_up"):
-			rotation_degrees += 45
+			global_rotation_degrees += 45
 		if Input.is_action_pressed("ui_left"):
 			apply_impulse(Vector2.ZERO,Vector2.LEFT * moveForce)
 		if Input.is_action_pressed("ui_right"):
@@ -30,7 +29,6 @@ func _physics_process(_delta):
 func landed():
 	SFX.play_fx(SFX.FX.LAND)
 	active = false
-#	set_deferred("mode",RigidBody2D.MODE_STATIC)
 
 func _on_Piece_body_entered(body):
 	yield(get_tree().create_timer(.5),"timeout")
