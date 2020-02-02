@@ -25,7 +25,7 @@ func set_inactive():
 	self.active = false
 
 func _on_Coin_body_entered(player : Player):
-	if player and active:
+	if player is Player and active:
 		player.coins+= 1
 		SFX.play_fx(SFX.FX.COIN)
 		self.queue_free()

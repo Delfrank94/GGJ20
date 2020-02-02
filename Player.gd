@@ -16,17 +16,22 @@ var jumpCount = 0
 var facing = 1
 var hp = 4 setget setHp
 var onGround = false
-var coins = 0
+var coins = 0 setget setCoins
 
 signal died
+signal coin
 
 func setHp(value):
 	hp = value
 	$AnimationPlayer.play("hurt")
 	if hp <= 0:
-		emit_signal("died",self)
+		emit_signal("died")
 		queue_free()
 
+func setCoins(value):
+	coins = value
+	emit_signal("coin",coins)
+	
 func _physics_process(_delta):
 	if active:
 		direction = getDirection(direction)

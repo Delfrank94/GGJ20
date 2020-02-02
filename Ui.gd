@@ -14,3 +14,6 @@ func reset(time):
 	maxTime = time
 	countdownTimer.start(time)
 	$RoundBar.setPorcentage(countdownTimer.time_left,maxTime)
+
+func _on_Player_coin(val):
+	$Score/Label.text = str(val)

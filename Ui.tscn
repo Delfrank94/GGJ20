@@ -1,18 +1,29 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Ui.gd" type="Script" id=1]
 [ext_resource path="res://RoundBar.gd" type="Script" id=2]
 [ext_resource path="res://Muro.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://arte/assets/medal-nostripes.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 3 )
+
 [node name="Ui" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_min_size = Vector2( 1920, 1080 )
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -42,3 +53,40 @@ text = "00 : 00"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Score" type="Control" parent="."]
+margin_right = 297.0
+margin_bottom = 256.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Score"]
+margin_left = 157.0
+margin_top = 54.0
+margin_right = 218.0
+margin_bottom = 115.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Score"]
+margin_left = 124.765
+margin_top = 68.4518
+margin_right = 149.765
+margin_bottom = 119.452
+custom_fonts/font = SubResource( 3 )
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="medal-nostripes" type="TextureRect" parent="Score"]
+margin_left = -23.4514
+margin_top = -18.7786
+margin_right = 169.549
+margin_bottom = 185.221
+texture = ExtResource( 4 )
+expand = true
