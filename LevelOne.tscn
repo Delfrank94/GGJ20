@@ -1,30 +1,34 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
+[ext_resource path="res://arte/assets/scaffolding_palito.png" type="Texture" id=1]
 [ext_resource path="res://Level.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ui.tscn" type="PackedScene" id=4]
+[ext_resource path="res://arte/assets/scaff_2.png" type="Texture" id=5]
+[ext_resource path="res://arte/assets/scaffolding.png" type="Texture" id=6]
+[ext_resource path="res://arte/assets/scaff_bit.png" type="Texture" id=7]
 
-[sub_resource type="PhysicsMaterial" id=7]
+[sub_resource type="PhysicsMaterial" id=1]
 absorbent = true
 
-[sub_resource type="StreamTexture" id=1]
+[sub_resource type="StreamTexture" id=2]
 flags = 4
 load_path = "res://.import/esc_floor_2.png-834bf4125216e2099bd71b001cecee8c.stex"
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 184.608, 63.6351 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 376.619, 63.6351 )
 
-[sub_resource type="StreamTexture" id=4]
+[sub_resource type="StreamTexture" id=5]
 flags = 4
 load_path = "res://.import/esc_puente.png-306514a9f56d3bf292307966951c2397.stex"
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 184.608, 41.7964 )
 
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="StreamTexture" id=7]
 flags = 4
 load_path = "res://.import/esc_floor_1.png-e4ce2c81a0a52649d63fb4fdc1c626fd.stex"
 
@@ -57,13 +61,45 @@ margin_right = 1930.0
 margin_bottom = 1082.0
 timerPath = NodePath("../Timer")
 
+[node name="scaff_2" type="Sprite" parent="Ui"]
+position = Vector2( 993.222, 119.896 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="scaffolding_palito" type="Sprite" parent="Ui"]
+position = Vector2( 688.987, 378.283 )
+rotation = 1.18857
+scale = Vector2( 1.15922, 1 )
+z_index = -2
+texture = ExtResource( 1 )
+
+[node name="scaffolding_palito3" type="Sprite" parent="Ui"]
+position = Vector2( 1088.98, 348.695 )
+rotation = 1.08909
+z_index = -2
+texture = ExtResource( 1 )
+
+[node name="scaffolding_palito2" type="Sprite" parent="Ui"]
+position = Vector2( 886.502, 369.936 )
+rotation = -1.18857
+scale = Vector2( 1.1823, 1 )
+z_index = -2
+texture = ExtResource( 1 )
+
+[node name="scaffolding_palito4" type="Sprite" parent="Ui"]
+position = Vector2( 1302.74, 337.943 )
+rotation = -1.08909
+scale = Vector2( 1.02145, 1 )
+z_index = -2
+texture = ExtResource( 1 )
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 146.737, 554.213 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 21.8475, 877.513 )
 scale = Vector2( 1, 3.56 )
-physics_material_override = SubResource( 7 )
+physics_material_override = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -71,20 +107,20 @@ __meta__ = {
 [node name="icon" type="Sprite" parent="Floor"]
 position = Vector2( -237.557, -100.265 )
 scale = Vector2( 0.850413, 0.276775 )
-texture = SubResource( 1 )
+texture = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
 position = Vector2( -119.375, -158.081 )
 scale = Vector2( 0.360001, 1.48453 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Ledge" type="StaticBody2D" parent="."]
 position = Vector2( 329.85, 753.318 )
 scale = Vector2( 0.679999, 1.12 )
-physics_material_override = SubResource( 7 )
+physics_material_override = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -92,16 +128,16 @@ __meta__ = {
 [node name="icon" type="Sprite" parent="Ledge"]
 position = Vector2( 45, -61.6637 )
 scale = Vector2( 0.609396, 0.410596 )
-texture = SubResource( 4 )
+texture = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge"]
 position = Vector2( 3.058, -49.62 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Ledge2" type="StaticBody2D" parent="."]
 position = Vector2( 1423.2, 601.396 )
 scale = Vector2( 0.679999, 1.12 )
-physics_material_override = SubResource( 7 )
+physics_material_override = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -109,26 +145,26 @@ __meta__ = {
 [node name="icon" type="Sprite" parent="Ledge2"]
 position = Vector2( -32.3345, -62.4595 )
 scale = Vector2( 0.609396, 0.410596 )
-texture = SubResource( 4 )
+texture = SubResource( 5 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge2"]
 position = Vector2( 3.058, -49.62 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Floor7" type="StaticBody2D" parent="."]
 position = Vector2( 1038.55, 1093.5 )
 scale = Vector2( 7.16, 1.12 )
 collision_layer = 8
 collision_mask = 3
-physics_material_override = SubResource( 7 )
+physics_material_override = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7"]
 position = Vector2( -2.49547, -142.939 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Floor2" type="StaticBody2D" parent="."]
 position = Vector2( 1739.03, 886.524 )
@@ -141,11 +177,11 @@ __meta__ = {
 position = Vector2( -59.0739, 0.110245 )
 rotation = 2.27894e-09
 scale = Vector2( 0.920829, 0.142031 )
-texture = SubResource( 6 )
+texture = SubResource( 7 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -157,4 +193,23 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "waterMovement"
 anims/waterMovement = SubResource( 8 )
+
+[node name="scaffolding" type="Sprite" parent="."]
+position = Vector2( 469.214, 378.913 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="scaffolding2" type="Sprite" parent="."]
+position = Vector2( 1529.02, 376.755 )
+z_index = -1
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="scaff_bit" type="Sprite" parent="."]
+position = Vector2( 786.789, 607.711 )
+texture = ExtResource( 7 )
+
+[node name="scaff_bit2" type="Sprite" parent="."]
+position = Vector2( 1194.74, 538.64 )
+texture = ExtResource( 7 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
