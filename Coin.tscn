@@ -1,19 +1,42 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Coin.gd" type="Script" id=1]
 [ext_resource path="res://arte/assets/medal-nostripes.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 31.2604
+radius = 13.4446
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0, 5 ), Vector2( 0, -5 ) ]
+}
 
 [node name="Coin" type="Area2D"]
+position = Vector2( 0, 4.84507 )
 script = ExtResource( 1 )
+offset = Vector2( 0, -4.79756 )
 
 [node name="icon" type="Sprite" parent="."]
-position = Vector2( -1.84729, 8.40698 )
-scale = Vector2( 0.253333, 0.253333 )
+position = Vector2( -0.832169, 3.05128 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]

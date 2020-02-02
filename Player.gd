@@ -16,6 +16,7 @@ var jumpCount = 0
 var facing = 1
 var hp = 4 setget setHp
 var onGround = false
+var coins = 0
 
 signal died
 
@@ -98,10 +99,6 @@ func animate():
 			else:
 				if sprite.animation != "jump":
 					sprite.play("jump")
-
-func pocket(points):
-	pass
-
 
 func _on_Area2D_body_entered(body: Piece):
 	if body is Piece:

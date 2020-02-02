@@ -17,7 +17,7 @@
 [ext_resource path="res://arte/assets/player/tetris_2.png" type="Texture" id=15]
 [ext_resource path="res://arte/assets/player/tetris_3.png" type="Texture" id=16]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 39.7481, 77.5968 )
 
 [sub_resource type="SpriteFrames" id=2]
@@ -123,13 +123,14 @@ scale = Vector2( 0.473964, 0.473964 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 12.6592, 40.0874 )
 scale = Vector2( 2.10986, 2.10986 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="player" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 3 )
 scale = Vector2( 0.473964, 0.473964 )
 frames = SubResource( 2 )
 animation = "casting"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

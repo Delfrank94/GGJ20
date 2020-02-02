@@ -20,11 +20,21 @@ export var creationMargins = Vector2(300,300)
 export var mode = "tetris"
 export var tetrisTime = 30
 export var playerTime = 30
-onready var UI = $Ui
+var currentLevelIndex = -1
+var currentLevel
+
+func nextLevel():
+	currentLevelIndex+= 1
+	currentLevel = $Levels.get_children()[currentLevelIndex]
+
 
 func _ready():
+	nextLevel()
 	randomize()
-#	UI.reset(tetrisTime)
+	$Ui.reset(tetrisTime)
+	if mode == "player":
+		dropNewPiece = false
+		$Player.active = true
 
 func _process(_delta):
 	if dropNewPiece && !timeout:
@@ -60,3 +70,13 @@ func _on_Timer_timeout():
 			#gameoverr
 			yield(get_tree().create_timer(1),"timeout")
 			get_tree().reload_current_scene()
+
+
+func _on_Area2D_changeCamera(nextLevel):
+	var tw = $Tween
+	var cam = $Camera2D
+	var positions = get_tree().get_nodes_in_group("camPoints")
+	var nextCamPos = positions[nextLevel]
+	tw.interpolate_property(cam,"position", cam.position,nextCamPos.global_position,1,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tw.start()
+#	cam.position = nextCamPos.global_position
