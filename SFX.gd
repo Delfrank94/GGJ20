@@ -13,7 +13,8 @@ var _music_tracks : Array = [
 	preload("res://sound/music01.ogg"),
 	preload("res://sound/music02.ogg"),
 	preload("res://sound/music03.ogg"),
-	preload("res://sound/music04.ogg")
+	preload("res://sound/music04.ogg"),
+	preload("res://sound/music05.ogg")
 ]
 
 enum FX { COIN, JUMP, LAND, RUSH, EXPLODE }
