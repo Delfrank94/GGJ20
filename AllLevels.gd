@@ -46,7 +46,8 @@ func _ready():
 	tw.start()
 	UI.reset(tetrisTime)
 	dropNewPiece = true
-	
+	SFX.play_music()
+
 func _process(_delta):
 	if dropNewPiece && !timeout:
 		dropNewPiece = false
