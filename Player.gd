@@ -78,10 +78,10 @@ func getVerticalVelocity(_velocity):
 	return out
 
 func animate():
+	sprite.flip_h = facing != 1
 	if get_parent().mode == "tetris":
 		if sprite.animation != "casting":
 					sprite.play("casting")
-		sprite.flip_h = facing != 1
 	else:
 		if is_on_floor():
 			if sprite.animation != "hurt":

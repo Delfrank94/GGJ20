@@ -14,7 +14,6 @@ animations = [ {
 } ]
 
 [node name="LavaPiece" instance=ExtResource( 5 )]
-rotation = 0.0
 collision_mask = 13
 hazard = true
 
@@ -25,4 +24,5 @@ visible = false
 position = Vector2( -0.616581, 4.26443 )
 scale = Vector2( 0.370962, 0.332182 )
 frames = SubResource( 1 )
+frame = 2
 playing = true

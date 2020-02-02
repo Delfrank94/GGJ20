@@ -46,7 +46,6 @@ func onPieceLanded(piece: Piece):
 			dropNewPiece = true
 
 func _on_Timer_timeout():
-	print("TIEMPOOOOO")
 	match mode:
 		"tetris":
 			timeout = true
