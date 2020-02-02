@@ -27,6 +27,7 @@ func _physics_process(_delta):
 			SFX.play_fx(SFX.FX.RUSH)
 
 func landed():
+	SFX.play_fx(SFX.FX.LAND)
 	active = false
 #	set_deferred("mode",RigidBody2D.MODE_STATIC)
 
@@ -34,7 +35,6 @@ func landed():
 func _on_Area2D_body_entered(body):
 	if body != self:
 		yield(get_tree().create_timer(.5),"timeout")
-		SFX.play_fx(SFX.FX.LAND)
 		if active:
 #			if body.name.find("Ledge") != -1:
 #				set_deferred("mode",RigidBody2D.MODE_STATIC)
