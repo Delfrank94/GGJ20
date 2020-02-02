@@ -11,18 +11,18 @@
 [sub_resource type="PhysicsMaterial" id=1]
 absorbent = true
 
-[sub_resource type="StreamTexture" id=10]
+[sub_resource type="StreamTexture" id=6]
 flags = 4
 load_path = "res://.import/esc_puente.png-306514a9f56d3bf292307966951c2397.stex"
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 184.608, 41.7964 )
 
-[sub_resource type="StreamTexture" id=12]
+[sub_resource type="StreamTexture" id=8]
 flags = 4
 load_path = "res://.import/esc_floor_1.png-e4ce2c81a0a52649d63fb4fdc1c626fd.stex"
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 184.608, 63.6351 )
 
 [sub_resource type="Animation" id=9]
@@ -84,12 +84,12 @@ __meta__ = {
 [node name="icon" type="Sprite" parent="Ledge2"]
 position = Vector2( -32.3345, -62.4595 )
 scale = Vector2( 0.609396, 0.410596 )
-texture = SubResource( 10 )
+texture = SubResource( 6 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge2"]
 position = Vector2( 3.058, -49.62 )
-shape = SubResource( 11 )
+shape = SubResource( 7 )
 
 [node name="Floor2" type="StaticBody2D" parent="."]
 position = Vector2( 2033.28, 721.329 )
@@ -102,11 +102,11 @@ __meta__ = {
 position = Vector2( -59.0739, 0.110245 )
 rotation = 2.27894e-09
 scale = Vector2( 0.920829, 0.142031 )
-texture = SubResource( 12 )
+texture = SubResource( 8 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
-shape = SubResource( 13 )
+shape = SubResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

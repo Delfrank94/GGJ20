@@ -1,7 +1,8 @@
 extends Area2D
 
-export var nextLevel = 0
+export var nextLevelCameraPos : NodePath
 signal changeCamera
 
 func _on_Area2D_body_entered(body):
-	emit_signal("changeCamera",nextLevel)
+	var cameraPos = get_node(nextLevelCameraPos).global_position
+	emit_signal("changeCamera",body,cameraPos)

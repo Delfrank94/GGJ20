@@ -11,12 +11,18 @@ func _ready():
 func _process(delta):
 	if active:
 		modulate = Color.white
+		if !$AnimationPlayer.is_playing():
+			$AnimationPlayer.play("idle")
 	else:
 		modulate = Color(1,1,1,0.3)
+		$AnimationPlayer.stop()
 	position = defaultPosition + offset
 	
 func set_active():
 	self.active = true
+
+func set_inactive():
+	self.active = false
 
 func _on_Coin_body_entered(player : Player):
 	if player and active:

@@ -1,7 +1,7 @@
 extends Control
 
 export var timerPath : NodePath
-onready var countdownTimer :Timer = get_node(timerPath)
+onready var countdownTimer : Timer = get_node(timerPath)
 onready var maxTime = countdownTimer.time_left
 func _process(_delta):
 	var minutes = int(countdownTimer.time_left) / 60

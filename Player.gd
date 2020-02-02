@@ -31,6 +31,8 @@ func _physics_process(_delta):
 	if active:
 		direction = getDirection(direction)
 		velocity = getVelocity(direction,velocity)
+	else:
+		velocity = Vector2(0,0)
 	move_and_slide(velocity,Vector2.UP,
 				false, 4, PI/6, false)
 	checkGround()

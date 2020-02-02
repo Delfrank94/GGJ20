@@ -22,6 +22,7 @@ export var tetrisTime = 30
 export var playerTime = 30
 var currentLevelIndex = -1
 var currentLevel
+onready var UI = $Camera2D/Ui
 
 func nextLevel():
 	currentLevelIndex+= 1
@@ -31,7 +32,7 @@ func nextLevel():
 func _ready():
 	nextLevel()
 	randomize()
-	$Ui.reset(tetrisTime)
+	UI.reset(tetrisTime)
 	if mode == "player":
 		dropNewPiece = false
 		$Player.active = true
@@ -41,7 +42,8 @@ func _process(_delta):
 		dropNewPiece = false
 		var newPiecePosition = Vector2(
 			wrapi(randi(),
-			creationMargins.x,get_viewport_rect().size.x/2 - creationMargins.y),
+			$Camera2D/PieceMarginA.global_position.x,
+			$Camera2D/PieceMarginB.global_position.x),
 			 -30)
 		pieceScenes.shuffle()
 		var nextPiece = pieceScenes[wrapi(randi(),0,pieceScenes.size())]
@@ -65,18 +67,25 @@ func _on_Timer_timeout():
 			$Player.active = true
 			get_tree().call_group("coins", "set_active")
 			mode = "player"
-			$Ui.reset(playerTime)
+			UI.reset(playerTime)
 		"player":
 			#gameoverr
 			yield(get_tree().create_timer(1),"timeout")
 			get_tree().reload_current_scene()
 
+func clearLevel():
+	get_tree().call_group("coins", "set_inactive")
+	for p in pieces.get_children():
+		p.queue_free()
+	UI.reset(tetrisTime)
+	$Player.active = false
+	dropNewPiece = true
+	mode = "tetris"
 
-func _on_Area2D_changeCamera(nextLevel):
-	var tw = $Tween
-	var cam = $Camera2D
-	var positions = get_tree().get_nodes_in_group("camPoints")
-	var nextCamPos = positions[nextLevel]
-	tw.interpolate_property(cam,"position", cam.position,nextCamPos.global_position,1,Tween.TRANS_QUAD,Tween.EASE_IN)
-	tw.start()
-#	cam.position = nextCamPos.global_position
+func _on_Area2D_changeCamera(body, cameraPos):
+	if body is Player:
+		var tw = $Tween
+		var cam = $Camera2D
+		clearLevel()
+		tw.interpolate_property(cam,"position", cam.position,cameraPos,1,Tween.TRANS_QUAD,Tween.EASE_IN)
+		tw.start()
