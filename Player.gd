@@ -112,4 +112,4 @@ func animate():
 func _on_Area2D_body_entered(body: Piece):
 	if body is Piece:
 		if body.hazard && !$AnimationPlayer.current_animation == "hurt":
-			self.decHp()
+			self._hp -=1
