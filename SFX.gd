@@ -1,7 +1,7 @@
 extends Control
 
 const MAX_AUDIO_PLAYERS = 8
-var ONE_AT_TIME : Array = [ FX.RUSH ]
+var ONE_AT_TIME : Array = [ FX.LAND, FX.RUSH ]
 
 var _audio_players : Array
 var _stream_tags : Dictionary
