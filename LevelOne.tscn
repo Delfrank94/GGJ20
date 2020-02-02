@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://arte/assets/scaffolding_palito.png" type="Texture" id=1]
 [ext_resource path="res://Level.gd" type="Script" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://arte/assets/scaff_2.png" type="Texture" id=5]
 [ext_resource path="res://arte/assets/scaffolding.png" type="Texture" id=6]
 [ext_resource path="res://arte/assets/scaff_bit.png" type="Texture" id=7]
+[ext_resource path="res://arte/assets/test.jpg" type="Texture" id=8]
+[ext_resource path="res://arte/assets/background/obj3.png" type="Texture" id=9]
+[ext_resource path="res://arte/assets/background/obj1.png" type="Texture" id=10]
+[ext_resource path="res://arte/assets/background/obj2.png" type="Texture" id=11]
 
 [sub_resource type="PhysicsMaterial" id=1]
 absorbent = true
@@ -212,4 +216,25 @@ texture = ExtResource( 7 )
 [node name="scaff_bit2" type="Sprite" parent="."]
 position = Vector2( 1194.74, 538.64 )
 texture = ExtResource( 7 )
+
+[node name="test" type="Sprite" parent="."]
+position = Vector2( 931.17, 531.351 )
+scale = Vector2( 1.11705, 0.986022 )
+z_index = -20
+texture = ExtResource( 8 )
+
+[node name="obj1" type="Sprite" parent="."]
+position = Vector2( 234.125, 719.24 )
+z_index = -4
+texture = ExtResource( 10 )
+
+[node name="obj2" type="Sprite" parent="."]
+position = Vector2( 1542.34, 644.91 )
+z_index = -4
+texture = ExtResource( 11 )
+
+[node name="obj3" type="Sprite" parent="."]
+position = Vector2( 819.847, 951.15 )
+z_index = -1
+texture = ExtResource( 9 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
