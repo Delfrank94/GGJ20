@@ -9,6 +9,7 @@ export onready var pieceScenes = [
 						load("res://Pieces/S2Piece.tscn"),
 						load("res://Pieces/TPiece.tscn"),
 						load("res://Pieces/LavaPiece.tscn"),
+						load("res://Pieces/BarrelPiece.tscn"),
 						load("res://Pieces/SpikePiece.tscn")]
 onready var pieces = $Pieces
 var currentPiece

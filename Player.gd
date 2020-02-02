@@ -78,22 +78,26 @@ func getVerticalVelocity(_velocity):
 	return out
 
 func animate():
-	sprite.flip_h = facing != 1
-	if is_on_floor():
-		if sprite.animation != "hurt":
-			if abs(velocity.x) <= 0 || is_on_wall():
-				if sprite.animation != "idle":
-					sprite.play("idle")
-			else:
-				if sprite.animation != "run":
-					sprite.play("run")
+	if get_parent().mode == "tetris":
+		if sprite.animation != "casting":
+					sprite.play("casting")
+		sprite.flip_h = facing != 1
 	else:
-		if (velocity.y >= 0 ):
-			if sprite.animation != "fall":
-				sprite.play("fall")
+		if is_on_floor():
+			if sprite.animation != "hurt":
+				if abs(velocity.x) <= 0 || is_on_wall():
+					if sprite.animation != "idle":
+						sprite.play("idle")
+				else:
+					if sprite.animation != "run":
+						sprite.play("run")
 		else:
-			if sprite.animation != "jump":
-				sprite.play("jump")
+			if (velocity.y >= 0 ):
+				if sprite.animation != "fall":
+					sprite.play("fall")
+			else:
+				if sprite.animation != "jump":
+					sprite.play("jump")
 
 func pocket(points):
 	pass
