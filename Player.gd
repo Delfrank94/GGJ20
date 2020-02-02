@@ -24,6 +24,7 @@ signal coin
 func setHp(value):
 	_hp = value
 	$AnimationPlayer.play("hurt")
+	SFX.play_fx(SFX.FX.DAMAGE)
 	if _hp <= 0:
 		emit_signal("died")
 

@@ -1,7 +1,7 @@
 extends Control
 
 const MAX_AUDIO_PLAYERS = 8
-var ONE_AT_TIME : Array = [ FX.EXPLODE, FX.LAND, FX.RUSH ]
+var ONE_AT_TIME : Array = [ FX.EXPLODE, FX.LAND, FX.RUSH, FX.DAMAGE ]
 
 var _audio_players : Array
 var _stream_tags : Dictionary
@@ -17,14 +17,15 @@ var _music_tracks : Array = [
 	preload("res://sound/music05.ogg")
 ]
 
-enum FX { COIN, JUMP, LAND, RUSH, EXPLODE }
+enum FX { COIN, JUMP, LAND, RUSH, EXPLODE, DAMAGE }
 
 const streams = {
 	FX.COIN: preload("res://sound/coin.wav"),
 	FX.JUMP: preload("res://sound/jump.wav"),
 	FX.LAND: preload("res://sound/land.wav"),
 	FX.RUSH: preload("res://sound/rush.wav"),
-	FX.EXPLODE: preload("res://sound/explode.wav")
+	FX.EXPLODE: preload("res://sound/explode.wav"),
+	FX.DAMAGE: preload("res://sound/damage.wav")
 }
 
 func _ready():
