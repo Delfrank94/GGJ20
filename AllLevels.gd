@@ -14,7 +14,7 @@ export onready var pieceScenes = [
 onready var pieces = $Pieces
 var currentPiece
 var paying
-var dropNewPiece = true
+var dropNewPiece = false
 var timeout = false
 export var creationMargins = Vector2(300,300)
 export var mode = "tetris"
@@ -23,7 +23,8 @@ export var playerTime = 30
 var currentLevelIndex = -1
 var currentLevel
 onready var UI = $Camera2D/Ui
-var lastCheckpoint : Vector2 
+var lastCheckpoint : Vector2
+onready var tw = $Tween
 
 func nextLevel():
 	currentLevelIndex+= 1
@@ -34,11 +35,18 @@ func _ready():
 	lastCheckpoint = $Player.position
 	nextLevel()
 	randomize()
-	UI.reset(tetrisTime)
+#	UI.reset(tetrisTime)
 	if mode == "player":
 		dropNewPiece = false
 		$Player.active = true
-
+	var tut = $Camera2D/TetrisTutorial2
+	tut.frame = 0
+	yield(tut,"animation_finished")
+	tw.interpolate_property(tut,"modulate",tut.modulate,Color.transparent,1,Tween.TRANS_LINEAR,Tween.EASE_IN)
+	tw.start()
+	UI.reset(tetrisTime)
+	dropNewPiece = true
+	
 func _process(_delta):
 	if dropNewPiece && !timeout:
 		dropNewPiece = false
@@ -69,7 +77,14 @@ func _on_Timer_timeout():
 			$Player.active = true
 			get_tree().call_group("coins", "set_active")
 			mode = "player"
+			var tut2 = $Camera2D/PlayerTutorial
+			tut2.visible = true
+			tut2.frame = 0
+			yield(tut2,"animation_finished")
+			tw.interpolate_property(tut2,"modulate",tut2.modulate,Color.transparent,1,Tween.TRANS_LINEAR,Tween.EASE_IN)
+			tw.start()
 			UI.reset(playerTime)
+			
 		"player":
 			reset()
 

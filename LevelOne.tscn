@@ -132,7 +132,7 @@ position = Vector2( 3.058, -49.62 )
 shape = SubResource( 6 )
 
 [node name="Ledge2" type="StaticBody2D" parent="."]
-position = Vector2( 1423.2, 601.396 )
+position = Vector2( 1423.7, 602.661 )
 scale = Vector2( 0.679999, 1.12 )
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -164,6 +164,7 @@ texture = SubResource( 7 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2( 0, 0.327798 )
 shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
