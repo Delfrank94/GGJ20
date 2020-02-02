@@ -4,7 +4,7 @@
 [ext_resource path="res://arte/assets/piece_i.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 105.738, 30.0423 )
+extents = Vector2( 103.109, 25.6302 )
 
 [node name="IPiece" instance=ExtResource( 1 )]
 

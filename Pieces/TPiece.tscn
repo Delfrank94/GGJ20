@@ -11,13 +11,13 @@ extents = Vector2( 24.1471, 54.8872 )
 
 [node name="BoxPiece" instance=ExtResource( 1 )]
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( -0.679977, 31.1328 )
-shape = SubResource( 1 )
-
-[node name="icon" parent="." index="1"]
+[node name="icon" parent="." index="0"]
 scale = Vector2( 0.426843, 0.426843 )
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -0.679977, 27.1328 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
 position = Vector2( -2.99369, -0.598736 )

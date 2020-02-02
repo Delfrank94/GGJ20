@@ -4,21 +4,21 @@
 [ext_resource path="res://arte/assets/piece_s1.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 55, 30 )
+extents = Vector2( 52.2562, 27.5797 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 55, 30 )
+extents = Vector2( 52.6598, 25.6275 )
 
 [node name="BoxPiece" instance=ExtResource( 1 )]
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( -23.2562, 24.5797 )
-shape = SubResource( 1 )
-
-[node name="icon" parent="." index="1"]
+[node name="icon" parent="." index="0"]
 scale = Vector2( 0.426843, 0.426843 )
 texture = ExtResource( 2 )
 
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -23.2562, 24.5797 )
+shape = SubResource( 1 )
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
-position = Vector2( 19.3402, -35.3725 )
+position = Vector2( 20.3402, -28.3725 )
 shape = SubResource( 2 )

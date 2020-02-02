@@ -9,10 +9,10 @@ radius = 57.3482
 [node name="SpikePiece" instance=ExtResource( 5 )]
 hazard = true
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 5.3773, 1.43395 )
-shape = SubResource( 1 )
-
-[node name="icon" parent="." index="1"]
+[node name="icon" parent="." index="0"]
 position = Vector2( 29.1874, -20.3848 )
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 5.3773, 1.43395 )
+shape = SubResource( 1 )

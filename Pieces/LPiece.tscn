@@ -4,22 +4,22 @@
 [ext_resource path="res://arte/assets/piece_l1.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 50.2676, 33.5564 )
+extents = Vector2( 43.2179, 27.8738 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 46.3667, 60.8135 )
+extents = Vector2( 44.0069, 50.7544 )
 
 [node name="BoxPiece" instance=ExtResource( 1 )]
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 48.7821, 8.87376 )
-shape = SubResource( 1 )
-
-[node name="icon" parent="." index="1"]
+[node name="icon" parent="." index="0"]
 position = Vector2( 1.19747, -16.7646 )
 scale = Vector2( 0.426843, 0.426843 )
 texture = ExtResource( 2 )
 
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 48.7821, 8.87376 )
+shape = SubResource( 1 )
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
-position = Vector2( -48.0069, -18.2456 )
+position = Vector2( -45.0069, -15.2456 )
 shape = SubResource( 2 )
