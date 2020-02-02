@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://LevelOne.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelTwo.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ScnDetector.gd" type="Script" id=6]
 [ext_resource path="res://LevelThree.tscn" type="PackedScene" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 91.963, 223.713 )
@@ -15,6 +14,7 @@ extents = Vector2( 91.963, 223.713 )
 [node name="Game" type="Node2D"]
 position = Vector2( 35.2361, 29.3633 )
 script = ExtResource( 4 )
+tetrisTime = 45
 
 [node name="Pieces" type="Node2D" parent="."]
 
@@ -34,7 +34,7 @@ position = Vector2( 1479.82, -156.197 )
 script = null
 
 [node name="Area2D2" type="Area2D" parent="Levels/Level1"]
-position = Vector2( 1975.14, 40.7069 )
+position = Vector2( 2241.93, 63.4818 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
@@ -54,7 +54,7 @@ position = Vector2( 1115, 487.083 )
 script = null
 
 [node name="Area2D" type="Area2D" parent="Levels/Level"]
-position = Vector2( 1663.64, 240.711 )
+position = Vector2( 1912.64, 232.711 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
@@ -66,14 +66,14 @@ position = Vector2( 0, 30.2186 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1426.97, 322.352 )
+position = Vector2( 140.727, 546.162 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 925.885, 513.881 )
+position = Vector2( 923.95, 507.223 )
 current = true
 
 [node name="Ui" parent="Camera2D" instance=ExtResource( 3 )]
@@ -86,18 +86,13 @@ timerPath = NodePath("../../Timer")
 [node name="PieceMarginA" type="Position2D" parent="Camera2D"]
 position = Vector2( -649.525, -365.043 )
 
-[node name="icon" type="Sprite" parent="Camera2D/PieceMarginA"]
-texture = ExtResource( 8 )
-
 [node name="PieceMarginB" type="Position2D" parent="Camera2D"]
 position = Vector2( 375.113, -372.596 )
-
-[node name="icon2" type="Sprite" parent="Camera2D/PieceMarginB"]
-texture = ExtResource( 8 )
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="body_entered" from="Levels/Level1/Area2D2" to="Levels/Level1/Area2D2" method="_on_Area2D_body_entered"]
 [connection signal="changeCamera" from="Levels/Level1/Area2D2" to="." method="_on_Area2D_changeCamera"]
 [connection signal="body_entered" from="Levels/Level/Area2D" to="Levels/Level/Area2D" method="_on_Area2D_body_entered"]
 [connection signal="changeCamera" from="Levels/Level/Area2D" to="." method="_on_Area2D_changeCamera"]
+[connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
