@@ -1,19 +1,20 @@
 extends Control
 
 const MAX_AUDIO_PLAYERS = 8
-var ONE_AT_TIME : Array = [ FX.LAND, FX.RUSH ]
+var ONE_AT_TIME : Array = [ FX.EXPLODE, FX.LAND, FX.RUSH ]
 
 var _audio_players : Array
 var _stream_tags : Dictionary
 var _audio_player_idx : int = 0
 
-enum FX { COIN, JUMP, LAND, RUSH }
+enum FX { COIN, JUMP, LAND, RUSH, EXPLODE }
 
 const streams = {
 	FX.COIN: preload("res://sound/coin.wav"),
 	FX.JUMP: preload("res://sound/jump.wav"),
 	FX.LAND: preload("res://sound/land.wav"),
-	FX.RUSH: preload("res://sound/rush.wav")
+	FX.RUSH: preload("res://sound/rush.wav"),
+	FX.EXPLODE: preload("res://sound/explode.wav")
 }
 
 func _ready():
