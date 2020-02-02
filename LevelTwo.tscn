@@ -11,21 +11,21 @@
 [sub_resource type="PhysicsMaterial" id=1]
 absorbent = true
 
-[sub_resource type="StreamTexture" id=10]
+[sub_resource type="StreamTexture" id=2]
 flags = 4
 load_path = "res://.import/esc_puente.png-306514a9f56d3bf292307966951c2397.stex"
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 184.608, 41.7964 )
 
-[sub_resource type="StreamTexture" id=12]
+[sub_resource type="StreamTexture" id=4]
 flags = 4
 load_path = "res://.import/esc_floor_1.png-e4ce2c81a0a52649d63fb4fdc1c626fd.stex"
 
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 184.608, 63.6351 )
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 202.694, 63.6351 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 length = 4.0
 loop = true
 step = 1.0
@@ -37,44 +37,37 @@ tetrisTime = 45
 playerTime = 25
 
 [node name="Water" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1214.38, 912.121 )
+position = Vector2( 1214.38, 1037.35 )
 
 [node name="scaff_2" type="Sprite" parent="."]
-position = Vector2( 993.222, 119.896 )
+position = Vector2( 1024.69, 287.138 )
 z_index = -1
 texture = ExtResource( 5 )
 
 [node name="scaffolding_palito" type="Sprite" parent="."]
-position = Vector2( 688.987, 378.283 )
+position = Vector2( 737.79, 514.932 )
 rotation = 1.18857
 scale = Vector2( 1.15922, 1 )
 z_index = -2
 texture = ExtResource( 1 )
 
 [node name="scaffolding_palito3" type="Sprite" parent="."]
-position = Vector2( 1088.98, 348.695 )
+position = Vector2( 1134.03, 475.897 )
 rotation = 1.08909
 z_index = -2
 texture = ExtResource( 1 )
 
 [node name="scaffolding_palito2" type="Sprite" parent="."]
-position = Vector2( 886.502, 369.936 )
+position = Vector2( 938.102, 503.331 )
 rotation = -1.18857
 scale = Vector2( 1.1823, 1 )
-z_index = -2
-texture = ExtResource( 1 )
-
-[node name="scaffolding_palito4" type="Sprite" parent="."]
-position = Vector2( 1302.74, 337.943 )
-rotation = -1.08909
-scale = Vector2( 1.02145, 1 )
 z_index = -2
 texture = ExtResource( 1 )
 
 [node name="Pieces" type="Node2D" parent="."]
 
 [node name="Ledge2" type="StaticBody2D" parent="."]
-position = Vector2( 1717.45, 436.201 )
+position = Vector2( 1656.73, 883.985 )
 scale = Vector2( 0.679999, 1.12 )
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -84,15 +77,15 @@ __meta__ = {
 [node name="icon" type="Sprite" parent="Ledge2"]
 position = Vector2( -32.3345, -62.4595 )
 scale = Vector2( 0.609396, 0.410596 )
-texture = SubResource( 10 )
+texture = SubResource( 2 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge2"]
 position = Vector2( 3.058, -49.62 )
-shape = SubResource( 11 )
+shape = SubResource( 3 )
 
 [node name="Floor2" type="StaticBody2D" parent="."]
-position = Vector2( 2033.28, 721.329 )
+position = Vector2( 1304.68, 630.255 )
 scale = Vector2( -1.01678, 6.10131 )
 __meta__ = {
 "_edit_group_": true
@@ -102,11 +95,12 @@ __meta__ = {
 position = Vector2( -59.0739, 0.110245 )
 rotation = 2.27894e-09
 scale = Vector2( 0.920829, 0.142031 )
-texture = SubResource( 12 )
+texture = SubResource( 4 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
-shape = SubResource( 13 )
+position = Vector2( -19.1991, 1.06651 )
+shape = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -120,7 +114,7 @@ position = Vector2( 646.652, 553.302 )
 scale = Vector2( 2.10039, 2.10039 )
 
 [node name="Coin2" parent="Coins" instance=ExtResource( 9 )]
-position = Vector2( 1485.09, 384.614 )
+position = Vector2( 987.297, 908.435 )
 scale = Vector2( 2.10039, 2.10039 )
 offset = Vector2( 0, -1.50274 )
 
@@ -130,32 +124,28 @@ scale = Vector2( 2.10039, 2.10039 )
 offset = Vector2( 0, -1.50274 )
 
 [node name="Coin4" parent="Coins" instance=ExtResource( 9 )]
-position = Vector2( 1456.69, 675.226 )
+position = Vector2( 1860.13, 206.715 )
 scale = Vector2( 2.10039, 2.10039 )
 offset = Vector2( 0, -1.50274 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "waterMovement"
-anims/waterMovement = SubResource( 9 )
+anims/waterMovement = SubResource( 6 )
 
 [node name="Back" type="Node2D" parent="."]
 
 [node name="scaffolding" type="Sprite" parent="Back"]
-position = Vector2( 469.214, 378.913 )
+position = Vector2( 506.814, 551.455 )
 z_index = -1
 texture = ExtResource( 6 )
 
 [node name="scaffolding2" type="Sprite" parent="Back"]
-position = Vector2( 1529.02, 376.755 )
+position = Vector2( 1655.21, 535.985 )
 z_index = -1
 texture = ExtResource( 6 )
 flip_h = true
 
 [node name="scaff_bit" type="Sprite" parent="Back"]
-position = Vector2( 786.789, 607.711 )
-texture = ExtResource( 7 )
-
-[node name="scaff_bit2" type="Sprite" parent="Back"]
-position = Vector2( 1194.74, 538.64 )
+position = Vector2( 835.659, 742.919 )
 texture = ExtResource( 7 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
