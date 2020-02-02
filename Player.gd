@@ -14,7 +14,7 @@ var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 var jumpCount = 0
 var facing = 1
-var hp = 4 setget setHp
+var _hp = 4 setget setHp
 var onGround = false
 var coins = 0 setget setCoins
 
@@ -22,10 +22,13 @@ signal died
 signal coin
 
 func setHp(value):
-	hp = value
+	_hp = value
 	$AnimationPlayer.play("hurt")
-	if hp <= 0:
+	if _hp <= 0:
 		emit_signal("died")
+
+func decHp():
+	setHp(_hp - 1)
 
 func setCoins(value):
 	coins = value
@@ -109,4 +112,4 @@ func animate():
 func _on_Area2D_body_entered(body: Piece):
 	if body is Piece:
 		if body.hazard && !$AnimationPlayer.current_animation == "hurt":
-			self.hp -= 1
+			self.decHp()
