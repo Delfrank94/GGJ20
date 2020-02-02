@@ -117,3 +117,7 @@ func _on_Area2D_changeCamera(body, cameraPos):
 
 func _on_Player_died():
 	reset()
+
+func _on_End_area_entered(area):
+	$Transition.selectedLevel = 1
+	$Transition.changeScene()
