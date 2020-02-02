@@ -18,7 +18,7 @@ script = ExtResource( 4 )
 tetrisTime = 45
 
 [node name="bg" type="Sprite" parent="."]
-position = Vector2( 2729.4, 508.282 )
+position = Vector2( 2702.23, 513.716 )
 scale = Vector2( 2.92228, 2.92228 )
 z_index = -99
 texture = ExtResource( 8 )
