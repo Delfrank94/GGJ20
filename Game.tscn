@@ -103,7 +103,7 @@ position = Vector2( 0, 30.2186 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 215.387, 479.871 )
+position = Vector2( 115.524, 539.788 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -130,7 +130,7 @@ position = Vector2( 375.113, -372.596 )
 visible = false
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="TetrisTutorial2" type="AnimatedSprite" parent="Camera2D"]

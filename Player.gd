@@ -44,7 +44,7 @@ func _physics_process(_delta):
 				false, 4, PI/4, false)
 	checkGround()
 	if position.y >= 1150:
-		get_tree().reload_current_scene()
+		self.hp = 0
 	animate()
 
 func getDirection(out):
