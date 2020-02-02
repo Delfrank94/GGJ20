@@ -7,16 +7,12 @@
 collision_layer = 2
 collision_mask = 15
 mass = 3.0
-continuous_cd = 1
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 2 )
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="icon" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Piece_body_entered"]

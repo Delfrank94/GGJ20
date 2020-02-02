@@ -5,12 +5,13 @@ func _on_Area2D_body_entered(body):
 	
 
 func _on_Timer_timeout():
-	var overlappingPieces = $ExplosionArea.get_overlapping_bodies()
-	for each in overlappingPieces:
-		if each is Piece:
-			applyBlast(each,position,300)
-	queue_free()
-		
+#	var overlappingPieces = $ExplosionArea.get_overlapping_bodies()
+#	for each in overlappingPieces:
+#		if each is Piece:
+#			applyBlast(each,position,300)
+#	queue_free()
+	pass
+	
 func applyBlast(body, blastPosition, power):
 #	  void applyBlastImpulse(b2Body* body, b2Vec2 blastCenter, b2Vec2 applyPoint, float blastPower) {
 #      b2Vec2 blastDir = applyPoint - blastCenter;

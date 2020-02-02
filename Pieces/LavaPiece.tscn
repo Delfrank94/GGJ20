@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Pieces/HazardPiece.gd" type="Script" id=1]
 [ext_resource path="res://arte/assets/lava_3.png" type="Texture" id=2]
 [ext_resource path="res://arte/assets/lava_1.png" type="Texture" id=3]
 [ext_resource path="res://arte/assets/lava_2.png" type="Texture" id=4]
@@ -15,18 +14,15 @@ animations = [ {
 } ]
 
 [node name="LavaPiece" instance=ExtResource( 5 )]
+rotation = 0.0
 collision_mask = 13
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-script = ExtResource( 1 )
+hazard = true
 
-[node name="icon" parent="." index="2"]
+[node name="icon" parent="." index="1"]
 visible = false
 
-[node name="icon2" type="AnimatedSprite" parent="." index="3"]
+[node name="icon2" type="AnimatedSprite" parent="." index="2"]
 position = Vector2( -0.616581, 4.26443 )
 scale = Vector2( 0.370962, 0.332182 )
 frames = SubResource( 1 )
-frame = 2
 playing = true

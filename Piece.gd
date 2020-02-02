@@ -4,6 +4,7 @@ class_name Piece
 var active = true
 signal landed
 var moveForce = 30
+export var hazard = false
 
 func _ready():
 	rotation_degrees = 45 * (randi() % 5)
@@ -31,12 +32,10 @@ func landed():
 	active = false
 #	set_deferred("mode",RigidBody2D.MODE_STATIC)
 
-
-func _on_Area2D_body_entered(body):
-	if body != self:
-		yield(get_tree().create_timer(.5),"timeout")
-		if active:
+func _on_Piece_body_entered(body):
+	yield(get_tree().create_timer(.5),"timeout")
+	if active:
 #			if body.name.find("Ledge") != -1:
 #				set_deferred("mode",RigidBody2D.MODE_STATIC)
-			landed()
-			emit_signal("landed", self)
+		landed()
+		emit_signal("landed", self)

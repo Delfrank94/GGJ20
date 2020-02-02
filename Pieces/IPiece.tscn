@@ -1,25 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Piece.tscn" type="PackedScene" id=1]
 [ext_resource path="res://arte/assets/piece_i.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 111.41, 36.3448 )
-
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 105.738, 30.0423 )
 
 [node name="IPiece" instance=ExtResource( 1 )]
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-modulate = Color( 0.996078, 0.0509804, 0.0509804, 1 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 1.89076, 0.630249 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
-[node name="icon" parent="." index="2"]
+[node name="icon" parent="." index="1"]
 scale = Vector2( 0.426843, 0.426843 )
 texture = ExtResource( 2 )
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

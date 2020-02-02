@@ -21,7 +21,7 @@ signal died
 
 func setHp(value):
 	hp = value
-#	animator.play("hurt")
+	$AnimationPlayer.play("hurt")
 	if hp <= 0:
 		emit_signal("died",self)
 		queue_free()
@@ -101,3 +101,9 @@ func animate():
 
 func pocket(points):
 	pass
+
+
+func _on_Area2D_body_entered(body: Piece):
+	if body is Piece:
+		if body.hazard && !$AnimationPlayer.current_animation == "hurt":
+			self.hp -= 1
