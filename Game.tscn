@@ -130,7 +130,7 @@ position = Vector2( 375.113, -372.596 )
 visible = false
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
-frame = 6
+frame = 5
 playing = true
 
 [node name="TetrisTutorial2" type="AnimatedSprite" parent="Camera2D"]
