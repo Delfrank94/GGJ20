@@ -8,7 +8,7 @@
 [ext_resource path="res://MuroFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://arte/assets/logo.png" type="Texture" id=7]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 2 )
 
@@ -93,7 +93,7 @@ __meta__ = {
 [node name="Play" type="Button" parent="Menu/VBoxContainer"]
 margin_right = 167.0
 margin_bottom = 57.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_constants/hseparation = 530
 text = "Play"
 flat = true
